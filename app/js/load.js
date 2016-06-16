@@ -2,7 +2,9 @@
 
 (function() {
 
-    // TODO this code can be improved.
+    var bootstrapper = require('js/bootstrapper');
+
+    // TODO abstract this out to the bootstrapper module.
     var l = window.location;
     var query = {};
     var vars = l.hash.substring(1).split('&');
@@ -122,10 +124,9 @@
 
         // Start everything!
         YAHOO.widget.Logger.enableBrowserConsole();
-        YAHOO.lacuna.Game.Start(query);
+        bootstrapper.startGame(query);
     };
 
     // Start the loading process.
     loader.insert();
-
 })();

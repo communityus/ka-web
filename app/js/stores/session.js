@@ -23,6 +23,7 @@ var SessionStore = Reflux.createStore({
     },
 
     onSessionSet : function(session) {
+        console.log('Got session: ' + session);
         this.emit(session);
     },
 

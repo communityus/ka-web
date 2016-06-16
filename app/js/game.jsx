@@ -2,23 +2,14 @@
 
 YAHOO.namespace('lacuna');
 
-var React           = require('react');
-var ReactDom        = require('react-dom');
-var _               = require('lodash');
-var ReactTooltip    = require('react-tooltip');
-
 var KeyboardActions = require('js/actions/keyboard');
-var MenuActions     = require('js/actions/menu');
-var SessionActions  = require('js/actions/session');
-var TickerActions   = require('js/actions/ticker');
-var UserActions     = require('js/actions/user');
 var WindowActions   = require('js/actions/window');
 
-var GameWindow      = require('js/components/gameWindow');
 var Captcha         = require('js/components/window/captcha');
 
 var BodyRPCStore    = require('js/stores/rpc/body');
 
+var bootstrapper    = require('js/bootstrapper');
 var constants       = require('js/constants');
 
 if (typeof YAHOO.lacuna.Game === 'undefined' || !YAHOO.lacuna.Game) {
@@ -42,32 +33,11 @@ if (typeof YAHOO.lacuna.Game === 'undefined' || !YAHOO.lacuna.Game) {
             onTick         : new Util.CustomEvent('onTick'),
             OverlayManager : new YAHOO.widget.OverlayManager(),
 
-            Start : function(query) {
-                var l = window.location;
-                Game.domain = l.hostname || 'lacunaexpanse.com';
+            handleLegacySetup : function() {
+                // domain for cookies
+                Game.domain = window.location.hostname || 'lacunaexpanse.com';
 
-                // This is some glue code to make the server, body and empire stores listen for changes.
-                // Normally, React Components should do this automatically, but since we need these
-                // stores operating immeadiatly we do it here.
-                // TODO: remove this!
-                require('js/stores/user').listen(_.noop);
-                require('js/stores/ticker').listen(_.noop);
-
-                var body = document.getElementById('body');
-
-                // Give the React stuff somewhere to go.
-                var container = document.createElement('div');
-                container.id = 'mainGameContainer';
-                body.appendChild(container);
-
-                ReactDom.render(
-                    <GameWindow />,
-                    document.getElementById('mainGameContainer')
-                );
-
-                require('js/actions/menu/loader').loaderMenuShow();
-
-                // add overlay manager functionality
+                // Custom OverlayManager functionality
                 Game.OverlayManager.hideAllBut = function(id) {
                     var overlays = this.overlays;
                     var n = overlays.length;
@@ -79,6 +49,7 @@ if (typeof YAHOO.lacuna.Game === 'undefined' || !YAHOO.lacuna.Game) {
                         }
                     }
                 };
+
                 Game.escListener = new Util.KeyListener(document, {
                     keys : 27
                 }, {
@@ -90,74 +61,60 @@ if (typeof YAHOO.lacuna.Game === 'undefined' || !YAHOO.lacuna.Game) {
                     correctScope : true
                 });
 
-                // get resources right away since they don't depend on anything.
                 Game.Resources = require('js/resources');
                 Game.PreloadUI();
 
                 Game.Services = Game.InitServices(YAHOO.lacuna.SMD.Services);
+            },
 
-                // The tooltips can often disappear because their parent elements are removed from the
-                // DOM and then replaced later. For example, switching between tabs that each have
-                // tooltips in them. Calling this every tick ensures that the tooltips are rebuilt if
-                // they disappear.
-                TickerActions.tickerTick.listen(function() {
-                    ReactTooltip.rebuild();
-                });
+            startLegacyGameLoop : function() {
+                // set our interval going for resource calcs since Logout clears it
+                Game.recTime = (new Date()).getTime();
+                Game.isRunning = 1;
 
-                if (!query) {
-                    query = {};
-                }
+                /* possible new pattern for game loop*/
+                (function GameLoop() {
+                    if (Game.isRunning) {
+                        Game.Tick();
+                        setTimeout(GameLoop, 1000);
+                    }
+                })();
+            },
 
-                var session = Game.GetSession();
-                if (query.referral) {
-                    // if they came from somewhere else
-                    var now = new Date();
-                    Cookie.set('lacunaReferral', query.referral, {
-                        domain  : Game.domain,
-                        expires : new Date(now.setFullYear(now.getFullYear() + 1))
+            initializeLegacyEvents : function() {
+                // init event subscribtions if we need to
+                // make sure we only subscribe once
+                if (!Lacuna.Game._hasRun) {
+
+                    Game._hasRun = true;
+
+                    Event.on(window, 'resize', function(e) {
+                        // taken from YUI Overlay
+                        if (YAHOO.env.ua.ie) {
+                            if (!window.resizeEnd) {
+                                window.resizeEnd = -1;
+                            }
+
+                            clearTimeout(window.resizeEnd);
+
+                            window.resizeEnd = setTimeout(function() {
+                                Lacuna.Game.Resize();
+                            }, 100);
+                        } else {
+                            Lacuna.Game.Resize();
+                        }
                     });
                 }
-                if (query.reset_password) {
-                    Game.InitLogin();
-                    Game.LoginDialog.resetPassword(query.reset_password);
-                    return;
-                }
-                if (query.facebook_uid) {
-                    Game.InitLogin();
-                    Game.LoginDialog.initEmpireCreator();
-                    Game.EmpireCreator.facebookReturn(query.facebook_uid, query.facebook_token, query.facebook_name);
-                    return;
-                } else if (query.session_id) {
-                    Game.SetSession(query.session_id);
-                } else if (query.empire_id) {
-                    Game.InitLogin();
-                    Game.LoginDialog.initEmpireCreator();
-                    Game.SpeciesCreator.show(query.empire_id);
-                    return;
-                } else if (!session) {
-                    Game.DoLogin();
-                    return;
-                }
 
-                // Run rest of UI since we're logged in
-                Game.GetStatus({
-                    success : Game.Run,
-                    failure : function(o) {
-                        Game.Reset();
-                        Game.DoLogin(o.error);
-                        return true;
-                    }
-                });
+                // enable esc handler
+                Game.escListener.enable();
             },
+
             Failure : function(o, retry, fail) {
                 // session expired
                 if (o.error.code === 1006) {
-                    Game.Reset();
-                    Game.DoLogin(o.error);
-                } else if (o.error.code === 1200) { // Game over
-                    window.alert(o.error.message);
-                    Game.Reset();
-                    window.location = o.error.data;
+                    Game.reset();
+                    bootstrapper.showLoginWindow(o.error);
                 } else if (o.error.code === 1016) { // Captcha
                     WindowActions.windowAdd(Captcha, 'captcha', {
                         success : retry
@@ -180,100 +137,6 @@ if (typeof YAHOO.lacuna.Game === 'undefined' || !YAHOO.lacuna.Game) {
                     });
                 } else {
                     fail();
-                }
-            },
-            InitLogin : function() {
-                if (!Lacuna.Game.LoginDialog) {
-                    Lacuna.Game.LoginDialog = new Lacuna.Login();
-                    Lacuna.Game.LoginDialog.subscribe('onLoginSuccessful', function(oArgs) {
-                        var result = oArgs.result;
-                        // remember session
-                        Game.SetSession(result.session_id);
-
-                        Game.RemoveCookie('locationId');
-                        Game.RemoveCookie('locationView');
-
-                        // store empire data
-                        Lacuna.Game.ProcessStatus(result.status);
-                        // Run rest of UI now that we're logged in
-
-                        Lacuna.Game.Run();
-                        if (result.welcome_message_id) {
-                            Game.QuickDialog({
-                                width : '400px',
-                                text  : ['Welcome to the Lacuna Expanse.  It is recommended that you play through the in game tutorial to familiarize yourself with the game, and to get some free resources to build up your empire.',
-                                    '<p>If you choose to skip the tutorial now you may find it by clicking <img src=",Lib.AssetUrl,"ui/s/inbox.png" title="Inbox" style="width:19px;height:22px;vertical-align:middle;margin:-5px 0 -4px -2px" /> at the top of the interface and find the message with the subject `Welcome`.</p>',
-                                    '<p>Thanks for playing!</p>'].join(''),
-                                buttons : [{
-                                    text    : 'View Tutorial',
-                                    handler : function() {
-                                        this.hide();
-                                        Lacuna.Messaging.showMessage(result.welcome_message_id);
-                                    },
-                                    isDefault : true
-                                }, {
-                                    text    : 'Skip Tutorial',
-                                    handler : function() {
-                                        this.hide();
-                                    }
-                                }]
-                            });
-                        }
-                    });
-                }
-            },
-            DoLogin : function(error) {
-                Dom.setStyle(document.body, 'background', 'url(' + Lib.AssetUrl + 'star_system/field.png) repeat scroll 0 0 black');
-                this.InitLogin();
-                Lacuna.Game.LoginDialog.show(error);
-                MenuActions.menuHide();
-                require('js/actions/menu/loader').loaderMenuHide();
-            },
-            Run : function() {
-                // set our interval going for resource calcs since Logout clears it
-                Game.recTime = (new Date()).getTime();
-                Game.isRunning = 1;
-
-                /* possible new pattern for game loop*/
-                (function GameLoop() {
-                    if (Game.isRunning) {
-                        Game.Tick();
-                        setTimeout(GameLoop, 1000);
-                    }
-                })();
-
-                // init event subscribtions if we need to
-                Game.InitEvents();
-                // enable esc handler
-                Game.escListener.enable();
-
-                document.title = 'KA - ' + Game.EmpireData.name;
-
-                SessionActions.sessionSet(Game.GetSession(''));
-                UserActions.userSignIn();
-            },
-            InitEvents : function() {
-                // make sure we only subscribe once
-                if (!Lacuna.Game._hasRun) {
-
-                    Game._hasRun = true;
-
-                    Event.on(window, 'resize', function(e) {
-                        // taken from YUI Overlay
-                        if (YAHOO.env.ua.ie) {
-                            if (!window.resizeEnd) {
-                                window.resizeEnd = -1;
-                            }
-
-                            clearTimeout(window.resizeEnd);
-
-                            window.resizeEnd = setTimeout(function() {
-                                Lacuna.Game.Resize();
-                            }, 100);
-                        } else {
-                            Lacuna.Game.Resize();
-                        }
-                    });
                 }
             },
             InitServices : function(smd) {

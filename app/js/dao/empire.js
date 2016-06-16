@@ -3,10 +3,24 @@
 var dao                 = require('js/dao');
 var vex                 = require('js/vex');
 var EmpireRPCActions    = require('js/actions/rpc/empire');
+var MenuActions         = require('js/actions/menu');
 
 function makeEmpireCall(options) {
     dao.makeServerCall('empire', options, EmpireRPCActions);
 }
+
+EmpireRPCActions.requestEmpireRPCLogin.listen(function(o) {
+    makeEmpireCall({
+        method : 'login',
+        params : {
+            name     : o.name,
+            password : o.password,
+            api_key  : 'aynonmous' // anonymous while in development
+        },
+        success : 'successEmpireRPCLogin',
+        error   : 'failureEmpireRPCLogin'
+    });
+});
 
 EmpireRPCActions.requestEmpireRPCLogout.listen(function(o) {
     makeEmpireCall({

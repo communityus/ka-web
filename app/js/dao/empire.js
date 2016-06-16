@@ -3,7 +3,6 @@
 var dao                 = require('js/dao');
 var vex                 = require('js/vex');
 var EmpireRPCActions    = require('js/actions/rpc/empire');
-var MenuActions         = require('js/actions/menu');
 
 function makeEmpireCall(options) {
     dao.makeServerCall('empire', options, EmpireRPCActions);

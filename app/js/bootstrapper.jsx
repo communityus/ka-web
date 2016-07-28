@@ -85,8 +85,6 @@ function startGame(query) {
 }
 
 function showLoginWindow(error) {
-    console.log('Showing login window');
-
     MenuActions.menuHide();
 
     WindowActions.windowAdd(LoginWindow, 'login', {

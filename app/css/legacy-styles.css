@@ -23,6 +23,7 @@ body {
 	min-width: 1050px;
 	/*min-height: 768px;*/
 	overflow: hidden;
+    background: black url('//d16cbq0l6kkf21.cloudfront.net/assets/star_system/field.png');
 }
 select, input, button, textarea, button {
 	font-family:verdana;

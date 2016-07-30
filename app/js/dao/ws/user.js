@@ -18,19 +18,10 @@ UserWSActions.requestUserWSRegister.listen(function(content) {
     });
 });
 
-// I'm not sure these belong here. but for now
-//
-
-UserWSActions.successUserWSClientCode.listen(function(result) {
-    // vex.alert('Successful Web Socket call for client code - ' + result.clientCode);
-});
-
-UserWSActions.successUserWSLoginWithPassword.listen(function(result) {
-    vex.alert('Successful Web Socket login - ');
-});
-
 UserWSActions.failureUserWSLoginWithPassword.listen(function(result) {
-    vex.alert('Failure Web Socket login - ');
+    if (result.message.includes('Incorrect credentials')) {
+        vex.alert('Invalid username or password');
+    }
 });
 
 module.exports = UserWSActions;

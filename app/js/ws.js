@@ -1,7 +1,9 @@
 'use strict';
 
-var constants           = require('js/constants');
-var UserWSActions       = require('js/actions/ws/user');
+var _             = require('lodash');
+
+var constants     = require('js/constants');
+var UserWSActions = require('js/actions/ws/user');
 
 var actionMap = {
     user : require('js/actions/ws/user')
@@ -26,31 +28,31 @@ ws.onmessage = function(event) {
 
     console.log('Web Socket: RECEIVED:', json);
 
-    var index   = routeMethod.lastIndexOf('/');
-    var route   = routeMethod.substring(1, index);
-    var method  = routeMethod.substring(index + 1);
-    var action  = 'success';
+    var splitted = _.compact(json.route.split('/'));
+    var route   = splitted[0] || '';
+    var method  = splitted[1] || '';
+    var action  = json.status === 0 ? 'success' : 'failure';
 
-    var actionClass  = actionMap[route];
+    var actionObj  = actionMap[route];
 
     // Capitalize first letter of 'method' and 'route'
-    method      = method.charAt(0).toUpperCase() + method.slice(1);
-    route       = route.charAt(0).toUpperCase() + route.slice(1);
+    var capitalizedMethod      = method.charAt(0).toUpperCase() + method.slice(1);
+    var capitalizedRoute       = route.charAt(0).toUpperCase() + route.slice(1);
 
-    if (!actionClass) {
-        console.error('ERROR: could not find route to [' + routeMethod + ']');
+    if (!actionObj) {
+        console.error('Could not route response from [' + routeMethod + ']');
         return;
     }
 
-    if (json.status > 0) {
-        action = 'failure';
-    }
-
     // Combine to create the action name
-    action  = action + route + 'WS' + method;
+    var fullAction  = action + capitalizedRoute + 'WS' + capitalizedMethod;
 
-    // Convert the route and method into an action
-    actionClass[action](json.content);
+    // Call the relevant action with the relevant data.
+    if (action === 'success') {
+        actionObj[fullAction](json.content);
+    } else if (action === 'failure') {
+        actionObj[fullAction](json);
+    }
 };
 
 ws.onopen = function(event) {
@@ -80,6 +82,7 @@ var call = function(message) {
 // Listen for the success return of a client code
 UserWSActions.successUserWSClientCode.listen(function(result) {
     clientCode = result.clientCode;
+    console.log('Using client code:', clientCode);
 });
 
 module.exports.clientCode   = clientCode;

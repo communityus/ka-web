@@ -5,6 +5,8 @@ var React           = require('react');
 var WindowActions   = require('js/actions/window');
 var UserWSActions   = require('js/actions/ws/user');
 
+var RegisterWindow = require('js/components/window/register');
+
 var LoginWindow = React.createClass({
     statics : {
         options : {
@@ -22,7 +24,8 @@ var LoginWindow = React.createClass({
     },
 
     onRegisterClick : function() {
-        console.log('TODO: onRegisterClick called');
+        WindowActions.windowCloseByType('login');
+        WindowActions.windowAdd(RegisterWindow, 'register');
     },
 
     closeWindow : function() {
@@ -57,7 +60,10 @@ var LoginWindow = React.createClass({
                                 </div>
                             </div>
 
-                            <div className="ui blue submit labeled icon button" onClick={this.onLoginClick}>
+                            <div
+                                className="ui blue submit labeled icon button"
+                                onClick={this.onLoginClick}
+                            >
                                 <i className="rocket icon"></i>
                                 Login
                             </div>

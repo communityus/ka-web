@@ -81,7 +81,7 @@ var WindowsStore = Reflux.createStore({
         var existingWindow = findWindowByType(state.windows, type);
 
         if (existingWindow) {
-            state.windows.splice(existingWindow.index, 1);
+            state.windows[existingWindow.index] = null;
         }
 
         this.emit(state);
@@ -96,7 +96,12 @@ var WindowsStore = Reflux.createStore({
     // Close all windows (i.e., where we log out).
     //
     onWindowCloseAll : function() {
-        this.emit(this.getDefaultData());
+        var state = _.cloneDeep(this.state);
+
+        // Clean the array out
+        state.windows = new Array(state.windows.length);
+
+        this.emit(state);
     },
 
     // Close the window on top when user hits the escape key.
@@ -104,6 +109,7 @@ var WindowsStore = Reflux.createStore({
     onEscKey : function() {
         var state = _.cloneDeep(this.state);
         var toClose = _.chain(state.windows)
+            .compact()
             .sortBy('zIndex')
             .reverse()
             .first()

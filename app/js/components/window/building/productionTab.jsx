@@ -7,16 +7,16 @@ var createReactClass = require('create-react-class');
 var Reflux = require('reflux');
 var _ = require('lodash');
 
-var BodyRPCStore = require('js/stores/rpc/body');
-var GenericBuildingRPCActions = require('js/actions/rpc/genericBuilding');
+var BodyRPCStore = require('/app/js/stores/rpc/body');
+var GenericBuildingRPCActions = require('/app/js/actions/rpc/genericBuilding');
 
-var ActionButton = require('js/components/window/building/actionButton');
-var ResourceProduction = require('js/components/window/building/resourceProduction');
-var ResourceCost = require('js/components/window/building/resourceCost');
-var ResourceLine = require('js/components/window/building/resourceLine');
+var ActionButton = require('/app/js/components/window/building/actionButton');
+var ResourceProduction = require('/app/js/components/window/building/resourceProduction');
+var ResourceCost = require('/app/js/components/window/building/resourceCost');
+var ResourceLine = require('/app/js/components/window/building/resourceLine');
 
-var util = require('js/util');
-var vex = require('js/vex');
+var util = require('/app/js/util');
+var vex = require('/app/js/vex');
 
 var ProductionTab = createReactClass({
     displayName: 'ProductionTab',

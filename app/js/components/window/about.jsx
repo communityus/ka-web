@@ -2,13 +2,13 @@
 
 var React = require('react');
 
-var AboutTab = require('js/components/window/about/aboutTab');
-var CreditsTab = require('js/components/window/about/creditsTab');
+var AboutTab = require('/app/js/components/window/about/aboutTab');
+var CreditsTab = require('/app/js/components/window/about/creditsTab');
 
-var StatsRPCActions = require('js/actions/rpc/stats');
-var WindowActions = require('js/actions/window');
+var StatsRPCActions = require('/app/js/actions/rpc/stats');
+var WindowActions = require('/app/js/actions/window');
 
-var Tabber = require('js/components/tabber');
+var Tabber = require('/app/js/components/tabber');
 var Tabs = Tabber.Tabs;
 var Tab = Tabber.Tab;
 

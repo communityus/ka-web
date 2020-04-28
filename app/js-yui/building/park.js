@@ -49,7 +49,7 @@ if (
                 return this.partyTab;
             },
             Party: function(e) {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
 
                 this.service.throw_a_party(
                     {
@@ -59,7 +59,7 @@ if (
                     {
                         success: function(o) {
                             YAHOO.log(o, 'info', 'Park.Party.success');
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
                             //this.work = o.result.building.work;
                             //this.updateBuildingTile(o.result.building);
@@ -131,7 +131,7 @@ if (
                 }
             },
             Subsidize: function(e) {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 Dom.get('parkSubsidize').disabled = true;
 
                 this.service.subsidize_party(
@@ -141,7 +141,7 @@ if (
                     },
                     {
                         success: function(o) {
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
 
                             //delete this.work;

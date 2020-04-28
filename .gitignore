@@ -12,3 +12,6 @@ app/config/user.json
 
 package-lock.json
 yarn.lock
+
+.cache
+dist/

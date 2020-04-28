@@ -5,7 +5,7 @@ This little module is for sending requests to the server. It should really only 
 
 ```javascript
 
-var server = require('js/server');
+var server = require('/app/js/server');
 
 server.call({
     // Name of the module you want to access on the server. Examples: empire, body

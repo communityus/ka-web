@@ -138,7 +138,7 @@ if (
             Transmit: function(e, opt) {
                 var btn = Event.getTarget(e);
                 Event.stopEvent(e);
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 btn.disabled = true;
                 this.service[opt.method](
                     {
@@ -174,7 +174,7 @@ if (
                                 true
                             );
                             a.animate();
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
                         },
                         failure: function(o) {

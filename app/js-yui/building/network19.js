@@ -76,7 +76,7 @@ if (
                     isRestrict = 0;
                 }
 
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.service.restrict_coverage(
                     {
                         session_id: Game.GetSession(),
@@ -90,7 +90,7 @@ if (
                                 'info',
                                 'Network19.NewsCoverage.restrict_coverage.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
 
                             Dom.get('newsCoverageText').innerHTML = isRestrict
@@ -109,7 +109,7 @@ if (
                 );
             },
             NewsGet: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.service.view_news(
                     {
                         session_id: Game.GetSession(),
@@ -118,7 +118,7 @@ if (
                     {
                         success: function(o) {
                             YAHOO.log(o, 'info', 'Network19.NewsGet.success');
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
 
                             var news = o.result.news,

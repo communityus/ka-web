@@ -1,9 +1,9 @@
 YAHOO.namespace('lacuna.buildings');
 
-var MapActions = require('js/actions/menu/map');
+var MapActions = require('/app/js/actions/menu/map');
 
-var EmpireRPCStore = require('js/stores/rpc/empire');
-var BodyRPCStore = require('js/stores/rpc/body');
+var EmpireRPCStore = require('/app/js/stores/rpc/empire');
+var BodyRPCStore = require('/app/js/stores/rpc/body');
 
 if (
     typeof YAHOO.lacuna.buildings.PlanetaryCommand == 'undefined' ||
@@ -231,7 +231,7 @@ if (
                     function(e) {
                         if (e.newValue) {
                             if (!this.plans) {
-                                require('js/actions/menu/loader').show();
+                                require('/app/js/actions/menu/loader').show();
                                 this.service.view_plans(
                                     {
                                         session_id: Game.GetSession(),
@@ -239,7 +239,7 @@ if (
                                     },
                                     {
                                         success: function(o) {
-                                            require('js/actions/menu/loader').hide();
+                                            require('/app/js/actions/menu/loader').hide();
                                             this.rpcSuccess(o);
                                             this.plans = o.result.plans;
 
@@ -383,7 +383,7 @@ if (
                         ].join('')
                     )
                 ) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     Game.Services.Body.abandon(
                         {
                             session_id: Game.GetSession(''),
@@ -446,7 +446,7 @@ if (
                                     .home_planet_id;
                                 MapActions.mapChangePlanet(home);
 
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                             },
                             scope: this,
                         }
@@ -525,7 +525,7 @@ if (
             SaveColonyNotes: function() {
                 var cp = Game.GetCurrentPlanet();
                 var notes = Dom.get('pccNotesText').value;
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 Game.Services.Body.set_colony_notes(
                     {
                         session_id: Game.GetSession(''),
@@ -534,7 +534,7 @@ if (
                     },
                     {
                         success: function(o) {
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                         },
                     }
                 );

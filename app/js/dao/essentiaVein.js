@@ -1,9 +1,9 @@
 'use strict';
 
-var dao = require('js/dao');
+var dao = require('/app/js/dao');
 
-var EssentiaVeinRPCActions = require('js/actions/rpc/essentiaVein');
-var BuildingWindowActions = require('js/actions/windows/building');
+var EssentiaVeinRPCActions = require('/app/js/actions/rpc/essentiaVein');
+var BuildingWindowActions = require('/app/js/actions/windows/building');
 
 function makeEssentiaVeinCall(options) {
     dao.makeServerCall('essentiavein', options, EssentiaVeinRPCActions);

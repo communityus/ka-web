@@ -4,17 +4,17 @@ var React = require('react');
 var createReactClass = require('create-react-class');
 var Reflux = require('reflux');
 
-var WindowActions = require('js/actions/window');
-var EmpireRPCActions = require('js/actions/rpc/empire');
+var WindowActions = require('/app/js/actions/window');
+var EmpireRPCActions = require('/app/js/actions/rpc/empire');
 
-var SessionStore = require('js/stores/session');
-var EmpireRPCStore = require('js/stores/rpc/empire');
-var BoostsEmpireRPCStore = require('js/stores/rpc/empire/boosts');
+var SessionStore = require('/app/js/stores/session');
+var EmpireRPCStore = require('/app/js/stores/rpc/empire');
+var BoostsEmpireRPCStore = require('/app/js/stores/rpc/empire/boosts');
 
-var BoostsTab = require('js/components/window/essentia/boostsTab');
-var GetEssentiaTab = require('js/components/window/essentia/getEssentiaTab');
+var BoostsTab = require('/app/js/components/window/essentia/boostsTab');
+var GetEssentiaTab = require('/app/js/components/window/essentia/getEssentiaTab');
 
-var Tabber = require('js/components/tabber');
+var Tabber = require('/app/js/components/tabber');
 var Tabs = Tabber.Tabs;
 var Tab = Tabber.Tab;
 

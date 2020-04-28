@@ -4,7 +4,7 @@ var PropTypes = require('prop-types');
 
 var React = require('react');
 
-var Boost = require('js/components/window/essentia/boost');
+var Boost = require('/app/js/components/window/essentia/boost');
 
 class BoostsTab extends React.Component {
     static propTypes = {

@@ -2,9 +2,9 @@
 
 var Reflux = require('reflux');
 
-var StatefulMixinStore = require('js/stores/mixins/stateful');
+var StatefulMixinStore = require('/app/js/stores/mixins/stateful');
 
-var EmpireRPCActions = require('js/actions/rpc/empire');
+var EmpireRPCActions = require('/app/js/actions/rpc/empire');
 
 var InviteRPCStore = Reflux.createStore({
     listenables: [EmpireRPCActions],

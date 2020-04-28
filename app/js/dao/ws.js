@@ -1,3 +1,3 @@
 'use strict';
 
-require('js/dao/ws/user');
+require('/app/js/dao/ws/user');

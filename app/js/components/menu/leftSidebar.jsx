@@ -4,21 +4,21 @@ var React = require('react');
 var createReactClass = require('create-react-class');
 var Reflux = require('reflux');
 
-var vex = require('js/vex');
-var util = require('js/util');
+var vex = require('/app/js/vex');
+var util = require('/app/js/util');
 
-var LeftSidebarActions = require('js/actions/menu/leftSidebar');
-var OptionsWindowActions = require('js/actions/windows/options');
-var WindowActions = require('js/actions/window');
-var EmpireRPCActions = require('js/actions/rpc/empire');
+var LeftSidebarActions = require('/app/js/actions/menu/leftSidebar');
+var OptionsWindowActions = require('/app/js/actions/windows/options');
+var WindowActions = require('/app/js/actions/window');
+var EmpireRPCActions = require('/app/js/actions/rpc/empire');
 
-var AboutWindow = require('js/components/window/about');
-var InviteWindow = require('js/components/window/invite');
+var AboutWindow = require('/app/js/components/window/about');
+var InviteWindow = require('/app/js/components/window/invite');
 
-var ServerClock = require('js/components/window/serverClock');
+var ServerClock = require('/app/js/components/window/serverClock');
 
-var EmpireRPCStore = require('js/stores/rpc/empire');
-var LeftSidebarStore = require('js/stores/menu/leftSidebar');
+var EmpireRPCStore = require('/app/js/stores/rpc/empire');
+var LeftSidebarStore = require('/app/js/stores/menu/leftSidebar');
 
 // Because there's a bit of special logic going on here, this is in a separate component.
 var SelfDestruct = createReactClass({

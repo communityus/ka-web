@@ -3,14 +3,14 @@
 var Reflux = require('reflux');
 var _ = require('lodash');
 var moment = require('moment');
-var util = require('js/util');
+var util = require('/app/js/util');
 var clone = util.clone;
 
-var StatefulMixinStore = require('js/stores/mixins/stateful');
+var StatefulMixinStore = require('/app/js/stores/mixins/stateful');
 
-var ServerStatusActions = require('js/actions/serverStatus');
-var TickerActions = require('js/actions/ticker');
-var EmpireRPCActions = require('js/actions/rpc/empire');
+var ServerStatusActions = require('/app/js/actions/serverStatus');
+var TickerActions = require('/app/js/actions/ticker');
+var EmpireRPCActions = require('/app/js/actions/rpc/empire');
 
 var ServerRPCStore = Reflux.createStore({
     listenables: [ServerStatusActions, TickerActions, EmpireRPCActions],

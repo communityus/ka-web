@@ -1,8 +1,8 @@
 'use strict';
 
-var dao = require('js/dao');
-var TheftTrainingRPCActions = require('js/actions/rpc/theftTraining');
-var BuildingWindowActions = require('js/actions/windows/building');
+var dao = require('/app/js/dao');
+var TheftTrainingRPCActions = require('/app/js/actions/rpc/theftTraining');
+var BuildingWindowActions = require('/app/js/actions/windows/building');
 
 function makeTheftTrainingCall(options) {
     dao.makeServerCall('thefttraining', options, TheftTrainingRPCActions);

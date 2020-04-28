@@ -1,7 +1,7 @@
 'use strict';
 
-// var StarmapActions  = require('js/actions/starmap');
-// var server          = require('js/server');
+// var StarmapActions  = require('/app/js/actions/starmap');
+// var server          = require('/app/js/server');
 
 // Convert a user request for a get_star_chunk rpc into a server request
 // on success, create a getStarChunk event

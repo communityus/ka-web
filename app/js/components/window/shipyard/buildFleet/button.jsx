@@ -4,7 +4,7 @@ var PropTypes = require('prop-types');
 
 var React = require('react');
 
-var ShipyardRPCActions = require('js/actions/rpc/shipyard');
+var ShipyardRPCActions = require('/app/js/actions/rpc/shipyard');
 
 class BuildButton extends React.Component {
     static propTypes = {

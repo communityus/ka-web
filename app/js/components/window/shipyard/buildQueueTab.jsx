@@ -6,10 +6,10 @@ var React = require('react');
 var createReactClass = require('create-react-class');
 var Reflux = require('reflux');
 
-var ShipyardRPCActions = require('js/actions/rpc/shipyard');
-var BuildQueueShipyardRPCStore = require('js/stores/rpc/shipyard/buildQueue');
+var ShipyardRPCActions = require('/app/js/actions/rpc/shipyard');
+var BuildQueueShipyardRPCStore = require('/app/js/stores/rpc/shipyard/buildQueue');
 
-var BuildQueueItem = require('js/components/window/shipyard/buildQueue/item');
+var BuildQueueItem = require('/app/js/components/window/shipyard/buildQueue/item');
 
 var BuildQueueTab = createReactClass({
     displayName: 'BuildQueueTab',

@@ -1,6 +1,6 @@
 'use strict';
 
-var vex = require('js/vex');
+var vex = require('/app/js/vex');
 
 var PropTypes = require('prop-types');
 
@@ -8,9 +8,9 @@ var React = require('react');
 var classnames = require('classnames');
 var validator = require('validator');
 
-var EmpireRPCActions = require('js/actions/rpc/empire');
+var EmpireRPCActions = require('/app/js/actions/rpc/empire');
 
-var BoostCountdown = require('js/components/window/essentia/boostCountdown');
+var BoostCountdown = require('/app/js/components/window/essentia/boostCountdown');
 
 class Boost extends React.Component {
     static propTypes = {

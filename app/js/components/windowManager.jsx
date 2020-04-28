@@ -3,8 +3,8 @@ var createReactClass = require('create-react-class');
 var Reflux = require('reflux');
 var _ = require('lodash');
 
-var WindowsStore = require('js/stores/windows');
-var Panel = require('js/components/window/panel');
+var WindowsStore = require('/app/js/stores/windows');
+var Panel = require('/app/js/components/window/panel');
 
 var WindowManager = createReactClass({
     displayName: 'WindowManager',

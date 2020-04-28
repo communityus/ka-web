@@ -4,7 +4,7 @@
 
 ```javascript
 var Reflux        = require('reflux');
-var StatefulStore = require('js/stores/mixins/stateful');
+var StatefulStore = require('/app/js/stores/mixins/stateful');
 
 var MyStore = Reflux.createStore({
     mixins : [
@@ -41,9 +41,9 @@ Stores need to be immutable so that each React component's [`shouldComponentUpda
 
 ```javascript
 var Reflux        = require('reflux');
-var StatefulStore = require('js/stores/mixins/stateful');
+var StatefulStore = require('/app/js/stores/mixins/stateful');
 
-var clone         = require('js/util').clone;
+var clone         = require('/app/js/util').clone;
 
 var MyStore = Reflux.createStore({
     mixins : [

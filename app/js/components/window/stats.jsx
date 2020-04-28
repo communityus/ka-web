@@ -4,7 +4,7 @@ var React = require('react');
 var createReactClass = require('create-react-class');
 var Reflux = require('reflux');
 
-var StatsWindowStore = require('js/stores/windows/stats');
+var StatsWindowStore = require('/app/js/stores/windows/stats');
 
 var StatsWindow = createReactClass({
     displayName: 'StatsWindow',

@@ -1,9 +1,9 @@
 'use strict';
 
-var dao = require('js/dao');
+var dao = require('/app/js/dao');
 
-var IntelTrainingRPCActions = require('js/actions/rpc/intelTraining');
-var BuildingWindowActions = require('js/actions/windows/building');
+var IntelTrainingRPCActions = require('/app/js/actions/rpc/intelTraining');
+var BuildingWindowActions = require('/app/js/actions/windows/building');
 
 function makeIntelTrainingCall(options) {
     dao.makeServerCall('inteltraining', options, IntelTrainingRPCActions);

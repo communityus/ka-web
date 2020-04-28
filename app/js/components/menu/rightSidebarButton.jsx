@@ -4,8 +4,8 @@ var React = require('react');
 var createReactClass = require('create-react-class');
 var Reflux = require('reflux');
 
-var BodyRPCStore = require('js/stores/rpc/body');
-var RightSidebarActions = require('js/actions/menu/rightSidebar');
+var BodyRPCStore = require('/app/js/stores/rpc/body');
+var RightSidebarActions = require('/app/js/actions/menu/rightSidebar');
 
 var RightSidebarButton = createReactClass({
     displayName: 'RightSidebarButton',

@@ -5,9 +5,9 @@ var createReactClass = require('create-react-class');
 var Reflux = require('reflux');
 var _ = require('lodash');
 
-var CreditsStatsRPCStore = require('js/stores/rpc/stats/credits');
+var CreditsStatsRPCStore = require('/app/js/stores/rpc/stats/credits');
 
-var CreditsSection = require('js/components/window/about/creditsSection');
+var CreditsSection = require('/app/js/components/window/about/creditsSection');
 
 var CreditsTab = createReactClass({
     displayName: 'CreditsTab',

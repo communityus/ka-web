@@ -4,13 +4,13 @@ var React = require('react');
 var createReactClass = require('create-react-class');
 var Reflux = require('reflux');
 
-var NotesWindowActions = require('js/actions/windows/notes');
-var BodyRPCActions = require('js/actions/rpc/body');
+var NotesWindowActions = require('/app/js/actions/windows/notes');
+var BodyRPCActions = require('/app/js/actions/rpc/body');
 
-var NotesWindowStore = require('js/stores/windows/notes');
-var NotesBodyRPCStore = require('js/stores/rpc/body/notes');
+var NotesWindowStore = require('/app/js/stores/windows/notes');
+var NotesBodyRPCStore = require('/app/js/stores/rpc/body/notes');
 
-var Panel = require('js/components/window/panel');
+var Panel = require('/app/js/components/window/panel');
 
 var NotesWindow = createReactClass({
     displayName: 'NotesWindow',

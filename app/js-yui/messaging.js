@@ -1,8 +1,8 @@
 'use strict';
 
-var MailWindowActions = require('js/actions/windows/mail');
+var MailWindowActions = require('/app/js/actions/windows/mail');
 
-var constants = require('js/constants');
+var constants = require('/app/js/constants');
 
 var _ = require('lodash');
 
@@ -626,12 +626,12 @@ if (typeof YAHOO.lacuna.Messaging == 'undefined' || !YAHOO.lacuna.Messaging) {
 
                             this.processMessages(o.result, { inbox: 1 });
                             this.fireEvent('onPageLoaded', o);
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                         },
                         scope: this,
                     };
 
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 if (this.tag && this.tag == 'Unread') {
                     InboxServ.view_unread(data, cb);
                 } else {
@@ -652,7 +652,7 @@ if (typeof YAHOO.lacuna.Messaging == 'undefined' || !YAHOO.lacuna.Messaging) {
                         session_id: Game.GetSession(''),
                         options: { page_number: 1 },
                     };
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 InboxServ.view_sent(data, {
                     success: function(o) {
                         this.fireEvent('onRpc', o.result);
@@ -677,7 +677,7 @@ if (typeof YAHOO.lacuna.Messaging == 'undefined' || !YAHOO.lacuna.Messaging) {
                         }
 
                         this.processMessages(o.result, { sent: 1 });
-                        require('js/actions/menu/loader').hide();
+                        require('/app/js/actions/menu/loader').hide();
                     },
                     scope: this,
                 });
@@ -693,7 +693,7 @@ if (typeof YAHOO.lacuna.Messaging == 'undefined' || !YAHOO.lacuna.Messaging) {
                         session_id: Game.GetSession(''),
                         options: { page_number: 1 },
                     };
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 InboxServ.view_archived(data, {
                     success: function(o) {
                         this.fireEvent('onRpc', o.result);
@@ -718,7 +718,7 @@ if (typeof YAHOO.lacuna.Messaging == 'undefined' || !YAHOO.lacuna.Messaging) {
                         }
 
                         this.processMessages(o.result, { archive: 1 });
-                        require('js/actions/menu/loader').hide();
+                        require('/app/js/actions/menu/loader').hide();
                     },
                     scope: this,
                 });
@@ -734,7 +734,7 @@ if (typeof YAHOO.lacuna.Messaging == 'undefined' || !YAHOO.lacuna.Messaging) {
                         session_id: Game.GetSession(''),
                         options: { page_number: 1 },
                     };
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 InboxServ.view_trashed(data, {
                     success: function(o) {
                         this.fireEvent('onRpc', o.result);
@@ -759,7 +759,7 @@ if (typeof YAHOO.lacuna.Messaging == 'undefined' || !YAHOO.lacuna.Messaging) {
                         }
 
                         this.processMessages(o.result, { trash: 1 });
-                        require('js/actions/menu/loader').hide();
+                        require('/app/js/actions/menu/loader').hide();
                     },
                     scope: this,
                 });
@@ -775,11 +775,11 @@ if (typeof YAHOO.lacuna.Messaging == 'undefined' || !YAHOO.lacuna.Messaging) {
                         success: function(o) {
                             this.fireEvent('onRpc', o.result);
                             this.processMessages(o.result, { inbox: 1 });
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                         },
                         scope: this,
                     };
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 if (this.tag && this.tag == 'Unread') {
                     InboxServ.view_unread(data, cb);
                 } else {
@@ -798,12 +798,12 @@ if (typeof YAHOO.lacuna.Messaging == 'undefined' || !YAHOO.lacuna.Messaging) {
                         session_id: Game.GetSession(''),
                         options: { page_number: newState.page },
                     };
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 InboxServ.view_sent(data, {
                     success: function(o) {
                         this.fireEvent('onRpc', o.result);
                         this.processMessages(o.result, { sent: 1 });
-                        require('js/actions/menu/loader').hide();
+                        require('/app/js/actions/menu/loader').hide();
                     },
                     scope: this,
                 });
@@ -817,12 +817,12 @@ if (typeof YAHOO.lacuna.Messaging == 'undefined' || !YAHOO.lacuna.Messaging) {
                         session_id: Game.GetSession(''),
                         options: { page_number: newState.page },
                     };
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 InboxServ.view_archived(data, {
                     success: function(o) {
                         this.fireEvent('onRpc', o.result);
                         this.processMessages(o.result, { archive: 1 });
-                        require('js/actions/menu/loader').hide();
+                        require('/app/js/actions/menu/loader').hide();
                     },
                     scope: this,
                 });
@@ -836,12 +836,12 @@ if (typeof YAHOO.lacuna.Messaging == 'undefined' || !YAHOO.lacuna.Messaging) {
                         session_id: Game.GetSession(''),
                         options: { page_number: newState.page },
                     };
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 InboxServ.view_trashed(data, {
                     success: function(o) {
                         this.fireEvent('onRpc', o.result);
                         this.processMessages(o.result, { trash: 1 });
-                        require('js/actions/menu/loader').hide();
+                        require('/app/js/actions/menu/loader').hide();
                     },
                     scope: this,
                 });
@@ -963,7 +963,7 @@ if (typeof YAHOO.lacuna.Messaging == 'undefined' || !YAHOO.lacuna.Messaging) {
                             message_id: msg.id,
                         };
 
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     InboxServ.read_message(data, {
                         success: function(o) {
                             var message = matchedEl.parentNode;
@@ -977,7 +977,7 @@ if (typeof YAHOO.lacuna.Messaging == 'undefined' || !YAHOO.lacuna.Messaging) {
                             Dom.removeClass(matchedEl.parentNode, 'unread');
                             this.fireEvent('onRpc', o.result);
                             this.displayMessage(o.result.message);
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                         },
                         scope: this,
                     });
@@ -1428,7 +1428,7 @@ if (typeof YAHOO.lacuna.Messaging == 'undefined' || !YAHOO.lacuna.Messaging) {
                 var res = el.href.match(/\#(-?\d+)$/);
                 this.hide();
                 var planet = Game.EmpireData.planets[res[1]];
-                require('js/actions/menu/map').mapChangePlanet(res[1]);
+                require('/app/js/actions/menu/map').mapChangePlanet(res[1]);
                 //Game.PlanetJump(planet);
             },
             handleAllianceLink: function(e, el) {

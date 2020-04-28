@@ -1,6 +1,6 @@
 YAHOO.namespace('lacuna.buildings');
 
-var constants = require('js/constants');
+var constants = require('/app/js/constants');
 
 if (
     typeof YAHOO.lacuna.buildings.TempleOfTheDrajilites == 'undefined' ||
@@ -149,7 +149,7 @@ if (
             },
 
             GetPlanets: function(starId) {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.service.list_planets(
                     {
                         session_id: Game.GetSession(),
@@ -158,7 +158,7 @@ if (
                     },
                     {
                         success: function(o) {
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
                             this.planets = o.result.planets;
                             this.PlanetsDisplay();
@@ -204,7 +204,7 @@ if (
                 var nLi = Event.getTarget(e);
                 if (nLi.Planet) {
                     if (!this.maps[nLi.Planet.id]) {
-                        require('js/actions/menu/loader').show();
+                        require('/app/js/actions/menu/loader').show();
                         this.service.view_planet(
                             {
                                 session_id: Game.GetSession(),
@@ -213,7 +213,7 @@ if (
                             },
                             {
                                 success: function(o) {
-                                    require('js/actions/menu/loader').hide();
+                                    require('/app/js/actions/menu/loader').hide();
                                     this.rpcSuccess(o);
                                     this.maps[nLi.Planet.id] = o.result.map;
                                     Lacuna.Messaging._load();

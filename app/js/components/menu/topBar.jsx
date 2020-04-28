@@ -5,18 +5,18 @@ var createReactClass = require('create-react-class');
 var Reflux = require('reflux');
 var classNames = require('classnames');
 
-var EmpireRPCStore = require('js/stores/rpc/empire');
-var MapModeMenuStore = require('js/stores/menu/mapMode');
-var ServerRPCStore = require('js/stores/rpc/server');
+var EmpireRPCStore = require('/app/js/stores/rpc/empire');
+var MapModeMenuStore = require('/app/js/stores/menu/mapMode');
+var ServerRPCStore = require('/app/js/stores/rpc/server');
 
-var EmpireRPCActions = require('js/actions/rpc/empire');
-var MapMenuActions = require('js/actions/menu/map');
-var WindowActions = require('js/actions/window');
-var MailWindowActions = require('js/actions/windows/mail');
-var StatsWindowActions = require('js/actions/windows/stats');
+var EmpireRPCActions = require('/app/js/actions/rpc/empire');
+var MapMenuActions = require('/app/js/actions/menu/map');
+var WindowActions = require('/app/js/actions/window');
+var MailWindowActions = require('/app/js/actions/windows/mail');
+var StatsWindowActions = require('/app/js/actions/windows/stats');
 
-var EssentiaWindow = require('js/components/window/essentia');
-var PromotionsWindow = require('js/components/window/promotions');
+var EssentiaWindow = require('/app/js/components/window/essentia');
+var PromotionsWindow = require('/app/js/components/window/promotions');
 
 var TopBar = createReactClass({
     displayName: 'TopBar',

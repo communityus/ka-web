@@ -6,16 +6,16 @@ var React = require('react');
 var createReactClass = require('create-react-class');
 var Reflux = require('reflux');
 
-var GenericBuildingStore = require('js/stores/genericBuilding');
+var GenericBuildingStore = require('/app/js/stores/genericBuilding');
 
-var StandardTabs = require('js/components/window/building/standardTabs');
-var BuildingInformation = require('js/components/window/building/information');
+var StandardTabs = require('/app/js/components/window/building/standardTabs');
+var BuildingInformation = require('/app/js/components/window/building/information');
 
-var WindowActions = require('js/actions/window');
-var BuildingWindowActions = require('js/actions/windows/building');
-var GenericBuildingRPCActions = require('js/actions/rpc/genericBuilding');
+var WindowActions = require('/app/js/actions/window');
+var BuildingWindowActions = require('/app/js/actions/windows/building');
+var GenericBuildingRPCActions = require('/app/js/actions/rpc/genericBuilding');
 
-var Tabber = require('js/components/tabber');
+var Tabber = require('/app/js/components/tabber');
 var Tabs = Tabber.Tabs;
 
 var GenericBuilding = createReactClass({

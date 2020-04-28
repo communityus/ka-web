@@ -1,6 +1,6 @@
 'use strict';
 
-const { Server } = require('miragejs');
+import { Server } from 'miragejs';
 
 const handleResponse = (module, response) => {
     const json = JSON.parse(response.requestBody);
@@ -1229,9 +1229,11 @@ const get_status = () => {
 
 const setupMocking = () => {
     console.log('Server mocking enabled');
-    new Server({
-        routes() {
+    const s = new Server({
+        routes: function() {
+            console.log('Namespace: ' + process.env.KA_SERVER_URL);
             this.namespace = process.env.KA_SERVER_URL;
+            console.log(this);
 
             this.post('/body', (_schema, response) => {
                 const { method } = handleResponse('empire', response);
@@ -1260,6 +1262,7 @@ const setupMocking = () => {
             });
         },
     });
+    console.log(s);
 };
 
 module.exports.setupMocking = setupMocking;

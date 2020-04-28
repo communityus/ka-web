@@ -3,9 +3,9 @@
 YAHOO.namespace('lacuna');
 
 var _ = require('lodash');
-var util = require('js/util');
+var util = require('/app/js/util');
 
-var OptionsWindowActions = require('js/actions/windows/options');
+var OptionsWindowActions = require('/app/js/actions/windows/options');
 
 if (typeof YAHOO.lacuna.Profile == 'undefined' || !YAHOO.lacuna.Profile) {
     (function() {
@@ -988,7 +988,7 @@ if (typeof YAHOO.lacuna.Profile == 'undefined' || !YAHOO.lacuna.Profile) {
                     alert(e);
                     return;
                 }
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 Game.Services.Empire.redefine_species(
                     { session_id: Game.GetSession(''), params: data },
                     {
@@ -998,7 +998,7 @@ if (typeof YAHOO.lacuna.Profile == 'undefined' || !YAHOO.lacuna.Profile) {
                                 'info',
                                 'Profile.redefine_species.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.hasSpecies = false;
                             this.SpeciesDialog.hide();
                             this.fireEvent('onRpc', o.result);

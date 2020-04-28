@@ -4,10 +4,10 @@ var React = require('react');
 var createReactClass = require('create-react-class');
 var Reflux = require('reflux');
 
-var EmpireRPCActions = require('js/actions/rpc/empire');
-var WindowActions = require('js/actions/window');
+var EmpireRPCActions = require('/app/js/actions/rpc/empire');
+var WindowActions = require('/app/js/actions/window');
 
-var InviteRPCStore = require('js/stores/rpc/invite');
+var InviteRPCStore = require('/app/js/stores/rpc/invite');
 
 var InviteWindow = createReactClass({
     displayName: 'InviteWindow',

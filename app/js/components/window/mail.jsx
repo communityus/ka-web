@@ -4,7 +4,7 @@ var React = require('react');
 var createReactClass = require('create-react-class');
 var Reflux = require('reflux');
 
-var MailWindowStore = require('js/stores/windows/mail');
+var MailWindowStore = require('/app/js/stores/windows/mail');
 
 var MailWindow = createReactClass({
     displayName: 'MailWindow',

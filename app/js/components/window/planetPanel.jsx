@@ -6,13 +6,13 @@ var React = require('react');
 var createReactClass = require('create-react-class');
 var Reflux = require('reflux');
 
-var GetBodyStatusRPCStore = require('js/stores/rpc/body/getBodyStatus');
+var GetBodyStatusRPCStore = require('/app/js/stores/rpc/body/getBodyStatus');
 
-var WindowActions = require('js/actions/window');
-var BodyRPCActions = require('js/actions/rpc/body');
+var WindowActions = require('/app/js/actions/window');
+var BodyRPCActions = require('/app/js/actions/rpc/body');
 
-var PlanetDetailsTab = require('js/components/window/planetPanel/planetDetailsTab');
-var Tabber = require('js/components/tabber');
+var PlanetDetailsTab = require('/app/js/components/window/planetPanel/planetDetailsTab');
+var Tabber = require('/app/js/components/tabber');
 
 var Tabs = Tabber.Tabs;
 var Tab = Tabber.Tab;

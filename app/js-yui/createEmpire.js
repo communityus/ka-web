@@ -156,7 +156,7 @@ if (
                     Game.SpeciesCreator.show(this.savedEmpire.id);
                     this.hide(); //hide empire
                 } else {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     var EmpireServ = Game.Services.Empire,
                         data = {
                             name: this.elName.value,
@@ -183,7 +183,7 @@ if (
                             this.savedEmpire = data;
                             this.savedEmpire.id = o.result;
                             Game.SpeciesCreator.show(o.result);
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.hide(); //hide empire
                         },
                         failure: function(o) {

@@ -4,11 +4,11 @@
 
 var Reflux = require('reflux');
 
-var NotesWindowActions = require('js/actions/windows/notes');
-var MapMenuActions = require('js/actions/menu/map');
+var NotesWindowActions = require('/app/js/actions/windows/notes');
+var MapMenuActions = require('/app/js/actions/menu/map');
 
-var BodyRPCStore = require('js/stores/rpc/body');
-var NotesWindowStore = require('js/stores/windows/notes');
+var BodyRPCStore = require('/app/js/stores/rpc/body');
+var NotesWindowStore = require('/app/js/stores/windows/notes');
 
 var NotesBodyRPCStore = Reflux.createStore({
     listenables: [NotesWindowActions, MapMenuActions],

@@ -1,9 +1,9 @@
 'use strict';
 
-var dao = require('js/dao');
+var dao = require('/app/js/dao');
 
-var SpacePortRPCActions = require('js/actions/rpc/spacePort');
-var BuildingWindowActions = require('js/actions/windows/building');
+var SpacePortRPCActions = require('/app/js/actions/rpc/spacePort');
+var BuildingWindowActions = require('/app/js/actions/windows/building');
 
 function makeSpacePortCall(options) {
     dao.makeServerCall('spaceport', options, SpacePortRPCActions);

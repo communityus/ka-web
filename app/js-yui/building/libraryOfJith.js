@@ -1,6 +1,6 @@
 YAHOO.namespace('lacuna.buildings');
 
-var constants = require('js/constants');
+var constants = require('/app/js/constants');
 
 if (
     typeof YAHOO.lacuna.buildings.LibraryOfJith == 'undefined' ||
@@ -97,7 +97,7 @@ if (
             },
 
             getSpecies: function(id) {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.service.research_species(
                     {
                         session_id: Game.GetSession(),
@@ -106,7 +106,7 @@ if (
                     },
                     {
                         success: function(o) {
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
                             this.speciesDisplay(o.result.species);
                         },

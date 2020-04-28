@@ -3,10 +3,10 @@
 var Reflux = require('reflux');
 var _ = require('lodash');
 
-var StatefulMixinStore = require('js/stores/mixins/stateful');
+var StatefulMixinStore = require('/app/js/stores/mixins/stateful');
 
-var KeyboardActions = require('js/actions/keyboard');
-var WindowActions = require('js/actions/window');
+var KeyboardActions = require('/app/js/actions/keyboard');
+var WindowActions = require('/app/js/actions/window');
 
 var findWindowByType = function(windows, type) {
     var index = _.findIndex(windows, function(o) {

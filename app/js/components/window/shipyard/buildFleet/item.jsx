@@ -4,11 +4,11 @@ var PropTypes = require('prop-types');
 
 var React = require('react');
 
-var ResourceLine = require('js/components/window/shipyard/resourceLine');
-var ResourceAttribute = require('js/components/window/shipyard/resourceAttribute');
-var BuildButton = require('js/components/window/shipyard/buildFleet/button');
+var ResourceLine = require('/app/js/components/window/shipyard/resourceLine');
+var ResourceAttribute = require('/app/js/components/window/shipyard/resourceAttribute');
+var BuildButton = require('/app/js/components/window/shipyard/buildFleet/button');
 
-var constants = require('js/constants');
+var constants = require('/app/js/constants');
 
 class BuildFleetItem extends React.Component {
     static propTypes = {

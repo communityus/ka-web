@@ -1,6 +1,6 @@
 YAHOO.namespace('lacuna.buildings');
 
-var BodyRPCStore = require('js/stores/rpc/body');
+var BodyRPCStore = require('/app/js/stores/rpc/body');
 
 if (
     typeof YAHOO.lacuna.buildings.Building == 'undefined' ||
@@ -214,7 +214,7 @@ if (
             Repair: function(e) {
                 var btn = Event.getTarget(e);
                 btn.disabled = true;
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 Game.Services.Buildings.Generic.repair(
                     {
                         session_id: Game.GetSession(),
@@ -227,7 +227,7 @@ if (
                                 'info',
                                 'Building.Repair.repair.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
                             if (this.repairTab) {
                                 Event.removeListener('repair', 'click');
@@ -492,7 +492,7 @@ if (
                         ].join('')
                     )
                 ) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     Game.Services.Buildings.Generic.demolish(
                         {
                             session_id: Game.GetSession(),
@@ -505,7 +505,7 @@ if (
                                     'info',
                                     'Building.Demolish.success'
                                 );
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.rpcSuccess(o);
                                 this.removeBuildingTile(building);
                                 this.fireEvent('onHide');
@@ -529,7 +529,7 @@ if (
                         ].join('')
                     )
                 ) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     Game.Services.Buildings.Generic.downgrade(
                         {
                             session_id: Game.GetSession(),
@@ -542,7 +542,7 @@ if (
                                     'info',
                                     'Building.Downgrade.success'
                                 );
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.fireEvent('onMapRpc', o.result);
 
                                 var b = building; //originally passed in building data from currentBuilding
@@ -569,7 +569,7 @@ if (
             Upgrade: function() {
                 var building = this.building;
 
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 var BuildingServ = Game.Services.Buildings.Generic,
                     data = {
                         session_id: Game.GetSession(''),
@@ -579,7 +579,7 @@ if (
                 BuildingServ.upgrade(data, {
                     success: function(o) {
                         YAHOO.log(o, 'info', 'Building.Upgrade.success');
-                        require('js/actions/menu/loader').hide();
+                        require('/app/js/actions/menu/loader').hide();
                         this.fireEvent('onMapRpc', o.result);
 
                         var b = building; //originally passed in building data from currentBuilding
@@ -633,7 +633,7 @@ if (
                 Dom.setStyle('incomingSupplyChainListNone', 'display', 'none');
 
                 if (!this.incoming_supply_chains) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.view_incoming_supply_chains(
                         {
                             session_id: Game.GetSession(),
@@ -646,7 +646,7 @@ if (
                                     'info',
                                     'building.viewIncomingSupplyChainInfo.success'
                                 );
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.rpcSuccess(o);
                                 this.incoming_supply_chains =
                                     o.result.supply_chains;

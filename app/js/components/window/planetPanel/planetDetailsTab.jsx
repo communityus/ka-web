@@ -4,10 +4,10 @@ var React = require('react');
 var createReactClass = require('create-react-class');
 var Reflux = require('reflux');
 
-var BodyRPCStore = require('js/stores/rpc/body');
+var BodyRPCStore = require('/app/js/stores/rpc/body');
 
-var PlanetDetails = require('js/components/window/planetPanel/planetDetails');
-var PlanetOre = require('js/components/window/planetPanel/planetOre');
+var PlanetDetails = require('/app/js/components/window/planetPanel/planetDetails');
+var PlanetOre = require('/app/js/components/window/planetPanel/planetOre');
 
 var PlanetDetailsTab = createReactClass({
     displayName: 'PlanetDetailsTab',

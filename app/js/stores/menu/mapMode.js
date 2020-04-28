@@ -2,9 +2,9 @@
 
 var Reflux = require('reflux');
 
-var MapActions = require('js/actions/menu/map');
+var MapActions = require('/app/js/actions/menu/map');
 
-var StatefulStore = require('js/stores/mixins/stateful');
+var StatefulStore = require('/app/js/stores/mixins/stateful');
 
 var PLANET_MAP_MODE = 'planetMap';
 var STAR_MAP_MODE = 'starMap';

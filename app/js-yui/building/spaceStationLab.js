@@ -299,7 +299,7 @@ if (
                 if (type && level) {
                     matchedEl.disabled = true;
 
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.make_plan(
                         {
                             session_id: Game.GetSession(),
@@ -309,7 +309,7 @@ if (
                         },
                         {
                             success: function(o) {
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.rpcSuccess(o);
                                 this.result = o.result;
                                 matchedEl.disabled = false;
@@ -327,7 +327,7 @@ if (
                 var btn = Event.getTarget(e);
                 btn.disabled = true;
 
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.service.subsidize_plan(
                     {
                         session_id: Game.GetSession(),
@@ -335,7 +335,7 @@ if (
                     },
                     {
                         success: function(o) {
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
                             this.result = o.result;
                             btn.disabled = false;

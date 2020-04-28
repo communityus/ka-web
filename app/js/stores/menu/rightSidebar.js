@@ -2,9 +2,9 @@
 
 var Reflux = require('reflux');
 
-var RightSidebarActions = require('js/actions/menu/rightSidebar');
+var RightSidebarActions = require('/app/js/actions/menu/rightSidebar');
 
-var StatefulStore = require('js/stores/mixins/stateful');
+var StatefulStore = require('/app/js/stores/mixins/stateful');
 
 var RightSidebarStore = Reflux.createStore({
     listenables: [RightSidebarActions],

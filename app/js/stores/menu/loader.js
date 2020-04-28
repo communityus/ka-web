@@ -2,7 +2,7 @@
 
 var Reflux = require('reflux');
 
-var LoaderMenuActions = require('js/actions/menu/loader');
+var LoaderMenuActions = require('/app/js/actions/menu/loader');
 
 var LoaderMenuStore = Reflux.createStore({
     listenables: LoaderMenuActions,

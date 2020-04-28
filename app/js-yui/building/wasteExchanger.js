@@ -64,7 +64,7 @@ if (
                         this.recycleMessageEl.innerHTML =
                             'Can only recycle waste you have stored.';
                     } else {
-                        require('js/actions/menu/loader').show();
+                        require('/app/js/actions/menu/loader').show();
 
                         this.service.recycle(
                             {
@@ -82,7 +82,7 @@ if (
                                         'info',
                                         'WasteExchanger.Recycle.success'
                                     );
-                                    require('js/actions/menu/loader').hide();
+                                    require('/app/js/actions/menu/loader').hide();
                                     this.rpcSuccess(o);
                                     this.work = o.result.building.work;
                                     //this.updateBuildingTile(o.result.building);
@@ -440,7 +440,7 @@ if (
                 this.SetTime();
             },
             RecycleSubsidize: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.service.subsidize_recycling(
                     {
                         session_id: Game.GetSession(),
@@ -453,7 +453,7 @@ if (
                                 'info',
                                 'WasteExchanger.RecycleSubsidize.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
 
                             this.resetQueue();

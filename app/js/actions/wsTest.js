@@ -1,7 +1,7 @@
 'use strict';
 
 var Reflux = require('reflux');
-var constants = require('js/constants');
+var constants = require('/app/js/constants');
 
 var WsTestActions = Reflux.createActions([
     'loginWithPassword',
@@ -92,7 +92,7 @@ var testWs = function() {
     });
 };
 
-if (process.env.KA_TEST_WS) {
+if (process.env.KA_TEST_WS === 'enabled') {
     testWs();
 }
 

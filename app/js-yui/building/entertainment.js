@@ -52,7 +52,7 @@ if (
             },
             LotteryView: function(e) {
                 if (e.newValue) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.get_lottery_voting_options(
                         {
                             session_id: Game.GetSession(),
@@ -60,7 +60,7 @@ if (
                         },
                         {
                             success: function(o) {
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.rpcSuccess(o);
 
                                 this.LotteryPopulate(o.result.options);
@@ -142,7 +142,7 @@ if (
                 ].join('');
             },
             Quack: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.service.duck_quack(
                     {
                         session_id: Game.GetSession(),
@@ -150,7 +150,7 @@ if (
                     },
                     {
                         success: function(o) {
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
                             this.result.ducks_quacked++;
                             this.SetQuacks();

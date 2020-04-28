@@ -1,9 +1,9 @@
 'use strict';
 
-var dao = require('js/dao');
+var dao = require('/app/js/dao');
 
-var TransporterRPCActions = require('js/actions/rpc/transporter');
-var BuildingWindowActions = require('js/actions/windows/building');
+var TransporterRPCActions = require('/app/js/actions/rpc/transporter');
+var BuildingWindowActions = require('/app/js/actions/windows/building');
 
 function makeTransporterCall(options) {
     dao.makeServerCall('transporter', options, TransporterRPCActions);

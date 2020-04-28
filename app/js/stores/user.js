@@ -3,11 +3,11 @@
 var Reflux = require('reflux');
 var ReactTooltip = require('react-tooltip');
 
-var EmpireRPCActions = require('js/actions/rpc/empire');
-var UserActions = require('js/actions/user');
-var MenuActions = require('js/actions/menu');
-var TickerActions = require('js/actions/ticker');
-var MapActions = require('js/actions/menu/map');
+var EmpireRPCActions = require('/app/js/actions/rpc/empire');
+var UserActions = require('/app/js/actions/user');
+var MenuActions = require('/app/js/actions/menu');
+var TickerActions = require('/app/js/actions/ticker');
+var MapActions = require('/app/js/actions/menu/map');
 
 // TODO What is the purpose of this store? It does not store anything!
 // (it should disappear when the yui code is replaced totally)

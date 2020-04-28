@@ -6,11 +6,11 @@ var React = require('react');
 var createReactClass = require('create-react-class');
 var Reflux = require('reflux');
 
-var constants = require('js/constants');
+var constants = require('/app/js/constants');
 
-var ViewAllFleetsSpacePortRPCStore = require('js/stores/rpc/spacePort/viewAllFleets');
+var ViewAllFleetsSpacePortRPCStore = require('/app/js/stores/rpc/spacePort/viewAllFleets');
 
-var OwnFleetItem = require('js/components/window/spacePort/ownFleets/item');
+var OwnFleetItem = require('/app/js/components/window/spacePort/ownFleets/item');
 
 var OwnFleetsTab = createReactClass({
     displayName: 'OwnFleetsTab',

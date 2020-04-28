@@ -155,7 +155,7 @@ if (
             },
 
             DevCancelAll: function(e) {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.service.cancel_build(
                     {
                         args: {
@@ -171,7 +171,7 @@ if (
                                 'info',
                                 'Development.DevCancelAll.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
                             if (this.queueTab) {
                                 Event.purgeElement(
@@ -188,7 +188,7 @@ if (
             },
 
             DevCancelOneBuild: function(e) {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
 
                 this.Self.service.cancel_build(
                     {
@@ -205,7 +205,7 @@ if (
                                 'info',
                                 'Development.DevCancelOneBuild.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.Self.rpcSuccess(o);
                             if (this.Self.queueTab) {
                                 Event.purgeElement(
@@ -222,7 +222,7 @@ if (
             },
 
             DevSubsidizeOneBuild: function(e) {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
 
                 this.Self.service.subsidize_one_build(
                     {
@@ -239,7 +239,7 @@ if (
                                 'info',
                                 'Development.DevSubsidizeOneBuild.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             var e = Game.EmpireData.essentia * 1;
                             Game.EmpireData.essentia =
                                 e - o.result.essentia_spent * 1;
@@ -259,7 +259,7 @@ if (
             },
 
             DevSubsidize: function(e) {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
 
                 this.service.subsidize_build_queue(
                     {
@@ -273,7 +273,7 @@ if (
                                 'info',
                                 'Development.DevSubsidize.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             var e = Game.EmpireData.essentia * 1;
                             Game.EmpireData.essentia =
                                 e - o.result.essentia_spent * 1;

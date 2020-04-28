@@ -20,13 +20,15 @@
         "test": "npm run lint",
         "lint": "eslint 'app/**/*.{js,jsx}'",
         "lint-fix": "eslint 'app/**/*.{js,jsx}' --fix",
-        "dev": "gulp devWithServer"
+        "dev": "rm -rf .cache dist build && parcel index.html --port 80",
+        "dev-demo": "rm -rf .cache dist build && NODE_ENV=demo parcel index.html --port 80"
     },
     "homepage": "https://github.com/Kantigen/ka-web",
     "dependencies": {
         "classnames": "2.2.6",
         "create-react-class": "^15.6.3",
         "fingerprintjs2": "2.1.0",
+        "jquery": "^3.4.1",
         "lodash": "4.17.15",
         "moment": "2.24.0",
         "prop-types": "^15.7.2",

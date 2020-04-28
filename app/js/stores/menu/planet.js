@@ -1,10 +1,10 @@
 'use strict';
 
 var Reflux = require('reflux');
-var StatefulStore = require('js/stores/mixins/stateful');
+var StatefulStore = require('/app/js/stores/mixins/stateful');
 
-var MapActions = require('js/actions/menu/map');
-var UserActions = require('js/actions/user');
+var MapActions = require('/app/js/actions/menu/map');
+var UserActions = require('/app/js/actions/user');
 
 var PlanetStore = Reflux.createStore({
     listenables: [MapActions, UserActions],

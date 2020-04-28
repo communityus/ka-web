@@ -4,9 +4,9 @@ var PropTypes = require('prop-types');
 
 var React = require('react');
 
-var ResourceAttribute = require('js/components/window/shipyard/resourceAttribute');
+var ResourceAttribute = require('/app/js/components/window/shipyard/resourceAttribute');
 
-var constants = require('js/constants');
+var constants = require('/app/js/constants');
 
 class BuildFleetItem extends React.Component {
     static propTypes = {

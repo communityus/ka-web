@@ -2,8 +2,8 @@
 
 var React = require('react');
 
-var WindowActions = require('js/actions/window');
-var UserWSActions = require('js/actions/ws/user');
+var WindowActions = require('/app/js/actions/window');
+var UserWSActions = require('/app/js/actions/ws/user');
 
 class LoginWindow extends React.Component {
     static options = {

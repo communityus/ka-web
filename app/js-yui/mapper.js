@@ -1510,7 +1510,7 @@ if (typeof YAHOO.lacuna.Mapper == 'undefined' || !YAHOO.lacuna.Mapper) {
                     }
                 } else {
                     //YAHOO.log(data, "debug", "StarMap.getTileData.requestData");
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     Game.Services.Map.get_star_map(
                         {
                             args: {
@@ -1524,7 +1524,7 @@ if (typeof YAHOO.lacuna.Mapper == 'undefined' || !YAHOO.lacuna.Mapper) {
                         {
                             success: function(o) {
                                 //YAHOO.log(o, "debug", "StarMap.getTileData.get_stars.success");
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 if (o && o.result) {
                                     Game.ProcessStatus(o.result.status);
                                     this.addTileData(o.result.stars);

@@ -116,7 +116,7 @@ if (
             },
             getBuild: function() {
                 if (!this.ships) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.get_buildable(
                         {
                             session_id: Game.GetSession(),
@@ -129,7 +129,7 @@ if (
                                     'info',
                                     'Shipyard.getBuild.get_buildable.success'
                                 );
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.rpcSuccess(o);
                                 this.ships = {
                                     buildable: o.result.buildable,
@@ -151,7 +151,7 @@ if (
             },
             getQueue: function() {
                 if (!this.ship_build_queue) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.view_build_queue(
                         {
                             session_id: Game.GetSession(),
@@ -165,7 +165,7 @@ if (
                                     'info',
                                     'Shipyard.getQueue.view_build_queue.success'
                                 );
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.rpcSuccess(o);
                                 this.ship_build_queue = o.result;
                                 this.ShipyardDisplay();
@@ -261,7 +261,7 @@ if (
                 ).innerHTML = compTime;
             },
             SubsidizeBuildQueue: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
 
                 this.service.subsidize_build_queue(
                     {
@@ -275,7 +275,7 @@ if (
                                 'info',
                                 'Shipyard.SubsidizeBuildQueue.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
 
                             this.ship_build_queue = undefined;
@@ -488,7 +488,7 @@ if (
                 }
             },
             SubsidizeShip: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.Self.service.subsidize_ship(
                     {
                         args: {
@@ -499,7 +499,7 @@ if (
                     },
                     {
                         success: function(o) {
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.Self.rpcSuccess(o);
                             this.Item.parentNode.removeChild(this.Item);
                         },
@@ -510,7 +510,7 @@ if (
             ShipBuild: function(e) {
                 var btn = Event.getTarget(e);
                 btn.disabled = true;
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 var qty = Dom.get('ship_' + this.Type);
                 var use = Lib.getSelectedOptionValue('shipBuildYards');
                 this.Self.service.build_ships(
@@ -526,7 +526,7 @@ if (
                     {
                         success: function(o) {
                             btn.disabled = false;
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.Self.rpcSuccess(o);
 
                             //this.Self.ship_build_queue = o.result;

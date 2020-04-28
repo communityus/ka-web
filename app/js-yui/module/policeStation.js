@@ -61,7 +61,7 @@ if (
             getForeign: function(e) {
                 if (e.newValue) {
                     if (!this.shipsForeign) {
-                        require('js/actions/menu/loader').show();
+                        require('/app/js/actions/menu/loader').show();
                         this.service.view_foreign_ships(
                             {
                                 session_id: Game.GetSession(),
@@ -75,7 +75,7 @@ if (
                                         'info',
                                         'SpacePort.view_foreign_ships.success'
                                     );
-                                    require('js/actions/menu/loader').hide();
+                                    require('/app/js/actions/menu/loader').hide();
                                     this.rpcSuccess(o);
                                     this.shipsForeign = {
                                         number_of_ships:
@@ -217,7 +217,7 @@ if (
                 }
             },
             ForeignHandlePagination: function(newState) {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.service.view_foreign_ships(
                     {
                         session_id: Game.GetSession(),
@@ -231,7 +231,7 @@ if (
                                 'info',
                                 'SpacePort.view_foreign_ships.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
                             this.shipsForeign = {
                                 number_of_ships: o.result.number_of_ships,

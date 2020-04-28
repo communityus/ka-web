@@ -1,8 +1,8 @@
 'use strict';
 
-var dao = require('js/dao');
+var dao = require('/app/js/dao');
 
-var StatsRPCActions = require('js/actions/rpc/stats');
+var StatsRPCActions = require('/app/js/actions/rpc/stats');
 
 function makeStatsCall(options) {
     dao.makeServerCall('stats', options, StatsRPCActions);

@@ -59,7 +59,7 @@ if (
                 Event.stopEvent(e);
                 var btn = Event.getTarget(e);
                 var newName = Dom.get('capitolNewEmpireName').value;
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 btn.disabled = true;
                 this.service.rename_empire(
                     {
@@ -79,7 +79,7 @@ if (
                             Dom.get(
                                 'capitolCurrentEmpireName'
                             ).innerHTML = newName;
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
                             alert('Your empire name has been changed!');
                         },

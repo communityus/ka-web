@@ -5,7 +5,7 @@ var PropTypes = require('prop-types');
 var React = require('react');
 var _ = require('lodash');
 
-var EssentiaVeinRPCActions = require('js/actions/rpc/essentiaVein');
+var EssentiaVeinRPCActions = require('/app/js/actions/rpc/essentiaVein');
 
 class DrainTab extends React.Component {
     static propTypes = {

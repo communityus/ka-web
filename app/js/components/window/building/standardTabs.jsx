@@ -2,11 +2,11 @@
 
 var React = require('react');
 
-var Tabber = require('js/components/tabber');
+var Tabber = require('/app/js/components/tabber');
 var Tab = Tabber.Tab;
 
-var ProductionTab = require('js/components/window/building/productionTab');
-var RepairTab = require('js/components/window/building/repairTab');
+var ProductionTab = require('/app/js/components/window/building/productionTab');
+var RepairTab = require('/app/js/components/window/building/repairTab');
 
 var StandardTabs = {
     tabs: function(options, building) {

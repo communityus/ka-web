@@ -3,7 +3,7 @@
 var moment = require('moment');
 var _ = require('lodash');
 
-var constants = require('js/constants');
+var constants = require('/app/js/constants');
 
 var xPad = function(x, pad, r) {
     if (typeof r === 'undefined') {

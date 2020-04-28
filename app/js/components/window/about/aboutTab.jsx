@@ -4,7 +4,7 @@ var React = require('react');
 var createReactClass = require('create-react-class');
 var Reflux = require('reflux');
 
-var ServerRPCStore = require('js/stores/rpc/server');
+var ServerRPCStore = require('/app/js/stores/rpc/server');
 
 var AboutTab = createReactClass({
     displayName: 'AboutTab',

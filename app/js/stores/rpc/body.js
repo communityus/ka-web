@@ -1,16 +1,16 @@
 'use strict';
 
 var Reflux = require('reflux');
-var StatefulStore = require('js/stores/mixins/stateful');
+var StatefulStore = require('/app/js/stores/mixins/stateful');
 var _ = require('lodash');
 
-var BodyStatusActions = require('js/actions/bodyStatus');
-var TickerActions = require('js/actions/ticker');
-var UserActions = require('js/actions/user');
+var BodyStatusActions = require('/app/js/actions/bodyStatus');
+var TickerActions = require('/app/js/actions/ticker');
+var UserActions = require('/app/js/actions/user');
 
-var ServerRPCStore = require('js/stores/rpc/server');
+var ServerRPCStore = require('/app/js/stores/rpc/server');
 
-var util = require('js/util');
+var util = require('/app/js/util');
 var int = util.int;
 var clone = util.clone;
 

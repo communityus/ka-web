@@ -395,7 +395,7 @@ if (
             viewExcavators: function(e) {
                 if (e.newValue) {
                     if (!this.excavators) {
-                        require('js/actions/menu/loader').show();
+                        require('/app/js/actions/menu/loader').show();
                         this.service.view_excavators(
                             {
                                 session_id: Game.GetSession(),
@@ -408,7 +408,7 @@ if (
                                         'info',
                                         'Archaeology.view_excavators.success'
                                     );
-                                    require('js/actions/menu/loader').hide();
+                                    require('/app/js/actions/menu/loader').hide();
                                     this.rpcSuccess(o);
                                     this.excavators = {
                                         max_excavators: o.result.max_excavators,
@@ -577,7 +577,7 @@ if (
                         ].join('')
                     )
                 ) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
 
                     this.Self.service.abandon_excavator(
                         {
@@ -592,7 +592,7 @@ if (
                                     'info',
                                     'Archaeology.ExcavatorAbandon.success'
                                 );
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.Self.rpcSuccess(o);
                                 var excavators = this.Self.excavators
                                     .excavators;
@@ -792,7 +792,7 @@ if (
 
             getOres: function() {
                 if (!this.ore) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.get_ores_available_for_processing(
                         {
                             session_id: Game.GetSession(),
@@ -805,7 +805,7 @@ if (
                                     'info',
                                     'Archaeology.getOres.success'
                                 );
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.rpcSuccess(o);
                                 this.ore = o.result.ore;
 
@@ -818,7 +818,7 @@ if (
             },
             getGlyphs: function() {
                 if (!this.glyphs) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.get_glyphs(
                         {
                             session_id: Game.GetSession(),
@@ -831,7 +831,7 @@ if (
                                     'info',
                                     'Archaeology.getGlyphs.success'
                                 );
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.rpcSuccess(o);
                                 this.glyphs = o.result.glyphs;
 
@@ -843,7 +843,7 @@ if (
                 }
             },
             assembleGlyph: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 var glyphs = Sel.query('li', 'archaeologyGlyphCombine'),
                     glyphTypes = [],
                     quantity = parseInt(Dom.get('combineQuantity').value, 10);
@@ -876,7 +876,7 @@ if (
                                     suffix +
                                     '!'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
                             delete this.glyphs;
                             this.getGlyphs();
@@ -886,7 +886,7 @@ if (
                 );
             },
             searchForGlyph: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 var sel = Dom.get('archaeologyOre'),
                     opts = sel.options,
                     selInd = sel.selectedIndex,
@@ -906,7 +906,7 @@ if (
                                     'info',
                                     'Archaeology.searchForGlyph.success'
                                 );
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.rpcSuccess(o);
                                 //this.work = o.result.building.work;
                                 //this.updateBuildingTile(o.result.building);
@@ -918,7 +918,7 @@ if (
                 }
             },
             Subsidize: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
 
                 this.service.subsidize_search(
                     {
@@ -927,7 +927,7 @@ if (
                     },
                     {
                         success: function(o) {
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
 
                             delete this.work;
@@ -947,7 +947,7 @@ if (
                         'Are you sure you want to abandon all excavators controlled by this Archaeology Ministry?'
                     )
                 ) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.mass_abandon_excavator(
                         {
                             session_id: Game.GetSession(),
@@ -960,7 +960,7 @@ if (
                                     'info',
                                     'Archaeology.AbandonAllExcavators.mass_abandon_excavator.success'
                                 );
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.rpcSuccess(o);
                                 this.probes = null;
 

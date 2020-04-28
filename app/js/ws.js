@@ -1,14 +1,14 @@
 'use strict';
 
-var constants = require('js/constants');
-var UserWSActions = require('js/actions/ws/user');
+var constants = require('/app/js/constants');
+var UserWSActions = require('/app/js/actions/ws/user');
 
 var actionMap = {};
-actionMap['user'] = require('js/actions/ws/user');
+actionMap['user'] = require('/app/js/actions/ws/user');
 
 // TODO clientCode should come from local store
 // TODO we need to be able to reconnect to the WebSocket if it fails
-if (process.env.KA_TEST_WS) {
+if (process.env.KA_TEST_WS === 'enabled') {
     var ws = new WebSocket(constants.WS_BASE);
     var clientCode = 'bad';
     var msgId = 0;

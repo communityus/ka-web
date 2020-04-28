@@ -84,7 +84,7 @@ if (
                             'You must specify an amount greater than zero.';
                         Lib.fadeOutElm('dumpMessage');
                     } else {
-                        require('js/actions/menu/loader').show();
+                        require('/app/js/actions/menu/loader').show();
                         this.service.dump(
                             {
                                 session_id: Game.GetSession(),
@@ -98,7 +98,7 @@ if (
                                         'info',
                                         'EnergyReserve.Dump.success'
                                     );
-                                    require('js/actions/menu/loader').hide();
+                                    require('/app/js/actions/menu/loader').hide();
                                     this.rpcSuccess(o);
                                     if (this.dumpTab) {
                                         var ce = this.dumpTab.get('contentEl');

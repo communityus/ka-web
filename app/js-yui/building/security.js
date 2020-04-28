@@ -97,7 +97,7 @@ if (
             prisonersView: function(e) {
                 if (e.newValue) {
                     if (!this.prisoners) {
-                        require('js/actions/menu/loader').show();
+                        require('/app/js/actions/menu/loader').show();
                         this.service.view_prisoners(
                             {
                                 session_id: Game.GetSession(),
@@ -110,7 +110,7 @@ if (
                                         'info',
                                         'Security.Security.view_prisoners.success'
                                     );
-                                    require('js/actions/menu/loader').hide();
+                                    require('/app/js/actions/menu/loader').hide();
                                     this.rpcSuccess(o);
                                     this.prisoners = o.result.prisoners;
                                     this.pagerPrisoners = new Pager({
@@ -228,7 +228,7 @@ if (
                 }
             },
             PrisonersHandlePagination: function(newState) {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.service.view_prisoners(
                     {
                         session_id: Game.GetSession(),
@@ -242,7 +242,7 @@ if (
                                 'info',
                                 'Security.PrisonersHandlePagination.view_prisoners.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
                             this.prisoners = o.result.prisoners;
                             this.PrisonersPopulate();
@@ -264,7 +264,7 @@ if (
                         ].join('')
                     )
                 ) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
 
                     this.Self.service.execute_prisoner(
                         {
@@ -279,7 +279,7 @@ if (
                                     'info',
                                     'Security.PrisonersExecute.success'
                                 );
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.Self.rpcSuccess(o);
                                 var prisoners = this.Self.prisoners;
                                 for (var i = 0; i < prisoners.length; i++) {
@@ -305,7 +305,7 @@ if (
                         ].join('')
                     )
                 ) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
 
                     this.Self.service.release_prisoner(
                         {
@@ -320,7 +320,7 @@ if (
                                     'info',
                                     'Security.PrisonersRelease.success'
                                 );
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.Self.rpcSuccess(o);
                                 var prisoners = this.Self.prisoners;
                                 for (var i = 0; i < prisoners.length; i++) {
@@ -340,7 +340,7 @@ if (
             spiesView: function(e) {
                 if (e.newValue) {
                     if (!this.spies) {
-                        require('js/actions/menu/loader').show();
+                        require('/app/js/actions/menu/loader').show();
                         this.service.view_foreign_spies(
                             {
                                 session_id: Game.GetSession(),
@@ -353,7 +353,7 @@ if (
                                         'info',
                                         'Security.Security.view_foreign_spies.success'
                                     );
-                                    require('js/actions/menu/loader').hide();
+                                    require('/app/js/actions/menu/loader').hide();
                                     this.rpcSuccess(o);
                                     this.spies = o.result.spies;
                                     this.pagerSpies = new Pager({
@@ -438,7 +438,7 @@ if (
                 }
             },
             SpyHandlePagination: function(newState) {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.service.view_foreign_spies(
                     {
                         session_id: Game.GetSession(),
@@ -452,7 +452,7 @@ if (
                                 'info',
                                 'Security.SpyHandlePagination.view_foreign_spies.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
                             this.spies = o.result.spies;
                             this.SpyPopulate();

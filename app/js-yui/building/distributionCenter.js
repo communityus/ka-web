@@ -104,7 +104,7 @@ if (
 
             GetStoredResources: function() {
                 if (!this.resources) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.get_stored_resources(
                         {
                             session_id: Game.GetSession(''),
@@ -115,7 +115,7 @@ if (
                                 this.rpcSuccess(o);
                                 this.resources = o.result.resources;
                                 this.ReservePopulate();
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                             },
                             scope: this,
                         }
@@ -359,7 +359,7 @@ if (
                     data.resources = reserveItems;
 
                     Dom.get('distribReserveMessage').innerHTML = '';
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.reserve(data, {
                         success: function(o) {
                             this.rpcSuccess(o);
@@ -377,7 +377,7 @@ if (
                             delete o.result.status;
                             this.result = o.result;
 
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.CheckReserve({ newValue: 1 });
                         },
                         scope: this,
@@ -441,7 +441,7 @@ if (
             },
             StoreRelease: function() {
                 Dom.get('distribReleaseMessage').innerHTML = '';
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.service.release_reserve(
                     {
                         session_id: Game.GetSession(''),
@@ -456,7 +456,7 @@ if (
                             delete o.result.status;
                             this.result = o.result;
 
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.CheckReserve({ newValue: 1 });
                         },
                         scope: this,

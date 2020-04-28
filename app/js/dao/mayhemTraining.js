@@ -1,9 +1,9 @@
 'use strict';
 
-var dao = require('js/dao');
+var dao = require('/app/js/dao');
 
-var MayhemTrainingRPCActions = require('js/actions/rpc/mayhemTraining');
-var BuildingWindowActions = require('js/actions/windows/building');
+var MayhemTrainingRPCActions = require('/app/js/actions/rpc/mayhemTraining');
+var BuildingWindowActions = require('/app/js/actions/windows/building');
 
 function makeMayhemTrainingCall(options) {
     dao.makeServerCall('mayhemtraining', options, MayhemTrainingRPCActions);

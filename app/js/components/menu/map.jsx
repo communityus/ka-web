@@ -4,10 +4,10 @@ var React = require('react');
 var createReactClass = require('create-react-class');
 var Reflux = require('reflux');
 
-var BodyRPCStore = require('js/stores/rpc/body');
-var MapModeStore = require('js/stores/menu/mapMode');
-var PlanetStore = require('js/stores/menu/planet');
-var MenuStore = require('js/stores/menu');
+var BodyRPCStore = require('/app/js/stores/rpc/body');
+var MapModeStore = require('/app/js/stores/menu/mapMode');
+var PlanetStore = require('/app/js/stores/menu/planet');
+var MenuStore = require('/app/js/stores/menu');
 
 // TODO: factor out all this glue code
 

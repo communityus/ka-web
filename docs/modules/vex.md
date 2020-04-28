@@ -1,6 +1,6 @@
 # Vex
 
-`require('js/vex');`
+`require('/app/js/vex');`
 
 Vex is a module for displaying pretty-looking `alert`, `confirm` and `prompt` boxes. This module is a wrapper around the Vex API to make things even easier.
 

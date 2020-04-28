@@ -94,7 +94,7 @@ if (
             },
 
             _found: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 var EmpireServ = Game.Services.Empire;
                 EmpireServ.found(
                     { empire_id: this.empireId, api_key: Lib.ApiKey },
@@ -105,7 +105,7 @@ if (
                                 'info',
                                 'CreateSpecies._found.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.hide(); //hide species
                             this.fireEvent('onCreateSuccessful', o);
                         },

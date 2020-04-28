@@ -2,13 +2,13 @@
 
 var Reflux = require('reflux');
 var _ = require('lodash');
-var util = require('js/util');
+var util = require('/app/js/util');
 
-var TickerActions = require('js/actions/ticker');
-var EmpireRPCActions = require('js/actions/rpc/empire');
+var TickerActions = require('/app/js/actions/ticker');
+var EmpireRPCActions = require('/app/js/actions/rpc/empire');
 
-var StatefulMixinsStore = require('js/stores/mixins/stateful');
-var ServerRPCStore = require('js/stores/rpc/server');
+var StatefulMixinsStore = require('/app/js/stores/mixins/stateful');
+var ServerRPCStore = require('/app/js/stores/rpc/server');
 
 var clone = util.clone;
 

@@ -131,7 +131,7 @@ if (
                     },
                     {
                         success: function(o) {
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             var profile = o.result.profile;
                             Dom.get('currentSpeciesDesc').innerHTML =
                                 profile.description;
@@ -147,7 +147,7 @@ if (
                 var btn = Event.getTarget(e);
                 var newName = Dom.get('newSpeciesName').value;
                 var newDesc = Dom.get('newSpeciesDesc').value.substr(0, 1024);
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 btn.disabled = true;
                 this.service.rename_species(
                     {
@@ -170,7 +170,7 @@ if (
                             Dom.get('newSpeciesDesc').value = '';
                             Dom.get('currentSpeciesName').innerHTML = newName;
                             Dom.get('currentSpeciesDesc').innerHTML = newDesc;
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
                             alert('Your species name has been changed!');
                         },
@@ -319,7 +319,7 @@ if (
             },
             prepareExperiment: function(e) {
                 if (e.newValue) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     delete this.currentSpy;
 
                     this.service.prepare_experiment(
@@ -329,7 +329,7 @@ if (
                         },
                         {
                             success: function(o) {
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.rpcSuccess(o);
 
                                 if (o.result.can_experiment == 1) {
@@ -357,7 +357,7 @@ if (
             },
             runExperiment: function() {
                 if (this.currentSpy) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
 
                     this.service.run_experiment(
                         {
@@ -370,7 +370,7 @@ if (
                         },
                         {
                             success: function(o) {
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.rpcSuccess(o);
 
                                 Dom.get(

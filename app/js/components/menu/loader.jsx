@@ -6,7 +6,7 @@ var Reflux = require('reflux');
 
 var classNames = require('classnames');
 
-var LoaderMenuStore = require('js/stores/menu/loader');
+var LoaderMenuStore = require('/app/js/stores/menu/loader');
 
 var Loader = createReactClass({
     displayName: 'Loader',

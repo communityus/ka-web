@@ -1,0 +1,24 @@
+window.YAHOO = require('/app/vendor-js/yui2/build/yuiloader/yuiloader');
+
+require('/app/vendor-js/yui2/build/event/event');
+require('/app/vendor-js/yui2/build/dom/dom');
+require('/app/vendor-js/yui2/build/animation/animation');
+require('/app/vendor-js/yui2/build/datasource/datasource');
+require('/app/vendor-js/yui2/build/autocomplete/autocomplete');
+require('/app/vendor-js/yui2/build/connection/connection');
+require('/app/vendor-js/yui2/build/container/container');
+require('/app/vendor-js/yui2/build/cookie/cookie');
+require('/app/vendor-js/yui2/build/element/element');
+require('/app/vendor-js/yui2/build/datatable/datatable');
+require('/app/vendor-js/yui2/build/dragdrop/dragdrop');
+require('/app/vendor-js/yui2/build/event-delegate/event-delegate');
+require('/app/vendor-js/yui2/build/event-mouseenter/event-mouseenter');
+require('/app/vendor-js/yui2/build/get/get');
+require('/app/vendor-js/yui2/build/json/json');
+require('/app/vendor-js/yui2/build/logger/logger');
+require('/app/vendor-js/yui2/build/menu/menu');
+require('/app/vendor-js/yui2/build/paginator/paginator');
+require('/app/vendor-js/yui2/build/selector/selector');
+require('/app/vendor-js/yui2/build/slider/slider');
+require('/app/vendor-js/yui2/build/tabview/tabview');
+require('/app/vendor-js/yui2/build/yahoo/yahoo');

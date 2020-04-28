@@ -851,7 +851,7 @@ if (
                             ).selectedIndex = -1;
                             Dom.get('transporterOneForOneQuantity').value = '';
                             this.getStoredResources(true);
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                         },
                         scope: this,
                     });
@@ -860,7 +860,7 @@ if (
 
             getGlyphs: function(force) {
                 if (force || !this.glyphs) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.get_glyph_summary(
                         {
                             session_id: Game.GetSession(''),
@@ -872,7 +872,7 @@ if (
                                 this.glyphs = o.result.glyphs;
                                 this.glyphSize = o.result.cargo_space_used_each;
                                 this.fireEvent('onLoadGlyphs');
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                             },
                             scope: this,
                         }
@@ -881,7 +881,7 @@ if (
             },
             getPlans: function(force) {
                 if (force || !this.plans) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.get_plan_summary(
                         {
                             session_id: Game.GetSession(''),
@@ -893,7 +893,7 @@ if (
                                 this.plans = o.result.plans;
                                 this.planSize = o.result.cargo_space_used_each;
                                 this.fireEvent('onLoadPlans');
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                             },
                             scope: this,
                         }
@@ -902,7 +902,7 @@ if (
             },
             getPrisoners: function(force) {
                 if (force || !this.prisoners) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.get_prisoners(
                         {
                             session_id: Game.GetSession(''),
@@ -914,7 +914,7 @@ if (
                                 this.prisoners = o.result.prisoners;
                                 this.spySize = o.result.cargo_space_used_each;
                                 this.fireEvent('onLoadPrisoners');
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                             },
                             scope: this,
                         }
@@ -923,7 +923,7 @@ if (
             },
             getShips: function(force) {
                 if (force || !this.ships) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.get_ship_summary(
                         {
                             session_id: Game.GetSession(''),
@@ -935,7 +935,7 @@ if (
                                 this.ships = o.result.ships;
                                 this.shipSize = o.result.cargo_space_used_each;
                                 this.fireEvent('onLoadShips');
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                             },
                             scope: this,
                         }
@@ -944,7 +944,7 @@ if (
             },
             getStoredResources: function(force) {
                 if (force || !this.resources) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.get_stored_resources(
                         {
                             session_id: Game.GetSession(''),
@@ -955,7 +955,7 @@ if (
                                 this.rpcSuccess(o);
                                 this.resources = o.result.resources;
                                 this.fireEvent('onLoadResources');
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                             },
                             scope: this,
                         }
@@ -965,7 +965,7 @@ if (
 
             getAvailable: function(e) {
                 if (e.newValue) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     var data = {
                             session_id: Game.GetSession(),
                             building_id: this.building.id,
@@ -982,7 +982,7 @@ if (
                                 'info',
                                 'Trade.view_available_trades.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
 
                             delete o.result.status; //get rid of status after we process it, since it's big
@@ -1116,7 +1116,7 @@ if (
                 }
             },
             AvailableHandlePagination: function(newState) {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 var data = {
                         session_id: Game.GetSession(),
                         building_id: this.building.id,
@@ -1133,7 +1133,7 @@ if (
                             'info',
                             'Trade.view_available_trades.success'
                         );
-                        require('js/actions/menu/loader').hide();
+                        require('/app/js/actions/menu/loader').hide();
                         this.rpcSuccess(o);
 
                         delete o.result.status; //get rid of status after we process it, since it's big
@@ -1148,7 +1148,7 @@ if (
                 this.availablePager.setState(newState);
             },
             AvailableAccept: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.Self.service.accept_from_market(
                     {
                         session_id: Game.GetSession(''),
@@ -1161,14 +1161,14 @@ if (
                             this.Self.rpcSuccess(o);
                             //force get the new availabe list after accepting so we get a new captcha
                             this.Self.getAvailable({ newValue: true });
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                         },
                         scope: this,
                     }
                 );
             },
             AvailableReport: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.Self.service.report_abuse(
                     {
                         session_id: Game.GetSession(''),
@@ -1187,7 +1187,7 @@ if (
                                 btn.parentNode.removeChild(btn);
                             }
                             this.Self.rpcSuccess(o);
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                         },
                         scope: this,
                     }
@@ -1200,7 +1200,7 @@ if (
             //View Mine
             getMine: function(e) {
                 if (e.newValue) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.view_my_market(
                         {
                             session_id: Game.GetSession(),
@@ -1214,7 +1214,7 @@ if (
                                     'info',
                                     'Trade.view_my_trades.success'
                                 );
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.rpcSuccess(o);
 
                                 delete o.result.status; //get rid of status after we process it, since it's big
@@ -1317,7 +1317,7 @@ if (
                 }
             },
             MineHandlePagination: function(newState) {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.service.view_my_market(
                     {
                         session_id: Game.GetSession(),
@@ -1331,7 +1331,7 @@ if (
                                 'info',
                                 'Trade.view_available_trades.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
 
                             delete o.result.status; //get rid of status after we process it, since it's big
@@ -1358,7 +1358,7 @@ if (
                         ].join('')
                     )
                 ) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.Self.service.withdraw_from_market(
                         {
                             session_id: Game.GetSession(''),
@@ -1381,7 +1381,7 @@ if (
                                     }
                                 }
                                 this.Line.parentNode.removeChild(this.Line);
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
 
                                 this.Self.getStoredResources(true);
                                 this.Self.getPlans(true);
@@ -2044,7 +2044,7 @@ if (
                     }
                 }
 
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.service.add_to_market(data, {
                     success: function(o) {
                         this.rpcSuccess(o);
@@ -2072,7 +2072,7 @@ if (
                         Dom.get('tradeAddAskingQuantity').value = '';
                         Dom.get('tradeAddCargo').innerHTML = '0';
                         this.fireEvent('onSelectTab', this.mineTabIndex);
-                        require('js/actions/menu/loader').hide();
+                        require('/app/js/actions/menu/loader').hide();
                     },
                     scope: this,
                 });
@@ -2723,7 +2723,7 @@ if (
                         'Must add items to send to colony.';
                 } else {
                     Dom.get('tradePushMessage').innerHTML = '';
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.push_items(data, {
                         success: function(o) {
                             this.rpcSuccess(o);
@@ -2762,7 +2762,7 @@ if (
                                 '.',
                             ].join('');
                             Lib.fadeOutElm('tradePushMessage');
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                         },
                         scope: this,
                     });

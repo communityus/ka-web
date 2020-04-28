@@ -1,11 +1,11 @@
 'use strict';
 
 var Reflux = require('reflux');
-var util = require('js/util');
+var util = require('/app/js/util');
 
-var SpacePortRPCActions = require('js/actions/rpc/spacePort');
+var SpacePortRPCActions = require('/app/js/actions/rpc/spacePort');
 
-var StatefulMixinsStore = require('js/stores/mixins/stateful');
+var StatefulMixinsStore = require('/app/js/stores/mixins/stateful');
 
 var clone = util.clone;
 

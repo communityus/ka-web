@@ -1,9 +1,9 @@
 'use strict';
 
-var dao = require('js/dao');
+var dao = require('/app/js/dao');
 
-var ShipyardRPCActions = require('js/actions/rpc/shipyard');
-var BuildingWindowActions = require('js/actions/windows/building');
+var ShipyardRPCActions = require('/app/js/actions/rpc/shipyard');
+var BuildingWindowActions = require('/app/js/actions/windows/building');
 
 function makeShipyardCall(options) {
     dao.makeServerCall('shipyard', options, ShipyardRPCActions);

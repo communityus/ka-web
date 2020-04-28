@@ -6,19 +6,19 @@ var React = require('react');
 var createReactClass = require('create-react-class');
 var Reflux = require('reflux');
 
-var GenericBuildingStore = require('js/stores/genericBuilding');
+var GenericBuildingStore = require('/app/js/stores/genericBuilding');
 
-var StandardTabs = require('js/components/window/building/standardTabs');
+var StandardTabs = require('/app/js/components/window/building/standardTabs');
 
-var BuildingInformation = require('js/components/window/building/information');
-var DrainTab = require('js/components/window/essentiavein/drainTab');
+var BuildingInformation = require('/app/js/components/window/building/information');
+var DrainTab = require('/app/js/components/window/essentiavein/drainTab');
 
-var WindowActions = require('js/actions/window');
-var BuildingWindowActions = require('js/actions/windows/building');
+var WindowActions = require('/app/js/actions/window');
+var BuildingWindowActions = require('/app/js/actions/windows/building');
 
-var EssentiaVeinRPCActions = require('js/actions/rpc/essentiaVein');
+var EssentiaVeinRPCActions = require('/app/js/actions/rpc/essentiaVein');
 
-var Tabber = require('js/components/tabber');
+var Tabber = require('/app/js/components/tabber');
 var Tabs = Tabber.Tabs;
 var Tab = Tabber.Tab;
 

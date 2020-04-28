@@ -1,12 +1,12 @@
 'use strict';
 
 var Reflux = require('reflux');
-var StatefulMixinStore = require('js/stores/mixins/stateful');
+var StatefulMixinStore = require('/app/js/stores/mixins/stateful');
 var _ = require('lodash');
 
-var BuildingWindowActions = require('js/actions/windows/building');
-var WindowActions = require('js/actions/window');
-var GenericBuildingRPCActions = require('js/actions/rpc/genericBuilding');
+var BuildingWindowActions = require('/app/js/actions/windows/building');
+var WindowActions = require('/app/js/actions/window');
+var GenericBuildingRPCActions = require('/app/js/actions/rpc/genericBuilding');
 
 var GenericBuildingRPCStore = Reflux.createStore({
     listenables: [BuildingWindowActions, GenericBuildingRPCActions],

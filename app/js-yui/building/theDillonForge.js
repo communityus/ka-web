@@ -163,7 +163,7 @@ if (
                     return;
                 }
 
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.Self.service.make_plan(
                     {
                         session_id: Game.GetSession(),
@@ -178,7 +178,7 @@ if (
                                 'info',
                                 'TheDillonForge.MakePlan.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.Self.rpcSuccess(o);
                             this.Self.result = o.result;
                             this.Self.viewForgeTab();
@@ -291,7 +291,7 @@ if (
                 selected = selected.split(';');
 
                 if (selected.length == 3) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.Self.service.split_plan(
                         {
                             session_id: Game.GetSession(),
@@ -308,7 +308,7 @@ if (
                                     'info',
                                     'TheDillonForge.SplitPlan.success'
                                 );
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.Self.rpcSuccess(o);
                                 this.Self.result = o.result;
                                 this.Self.viewForgeTab();
@@ -339,7 +339,7 @@ if (
                 Event.on(button, 'click', this.Subsidize, { Self: this }, true);
             },
             Subsidize: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.Self.service.subsidize(
                     {
                         session_id: Game.GetSession(),
@@ -352,7 +352,7 @@ if (
                                 'info',
                                 'TheDillonForge.Subsidize.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.Self.rpcSuccess(o);
                             this.Self.result = o.result;
                             this.Self.viewForgeTab();

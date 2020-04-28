@@ -1,6 +1,6 @@
 YAHOO.namespace('lacuna.modules');
 
-var constants = require('js/constants');
+var constants = require('/app/js/constants');
 
 if (
     typeof YAHOO.lacuna.modules.Parliament == 'undefined' ||
@@ -51,7 +51,7 @@ if (
                     function(e) {
                         if (e.newValue) {
                             if (!this.laws) {
-                                require('js/actions/menu/loader').show();
+                                require('/app/js/actions/menu/loader').show();
                                 this.service.view_laws(
                                     {
                                         session_id: Game.GetSession(),
@@ -59,7 +59,7 @@ if (
                                     },
                                     {
                                         success: function(o) {
-                                            require('js/actions/menu/loader').hide();
+                                            require('/app/js/actions/menu/loader').hide();
                                             this.rpcSuccess(o);
                                             this.laws = o.result.laws;
 
@@ -132,7 +132,7 @@ if (
                     function(e) {
                         if (e.newValue) {
                             if (!this.props) {
-                                require('js/actions/menu/loader').show();
+                                require('/app/js/actions/menu/loader').show();
                                 this.service.view_propositions(
                                     {
                                         session_id: Game.GetSession(),
@@ -140,7 +140,7 @@ if (
                                     },
                                     {
                                         success: function(o) {
-                                            require('js/actions/menu/loader').hide();
+                                            require('/app/js/actions/menu/loader').hide();
                                             this.rpcSuccess(o);
                                             this.props = o.result.propositions;
 
@@ -1220,7 +1220,7 @@ if (
 
                 button.disabled = true;
                 if (platform) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.propose_evict_mining_platform(
                         {
                             session_id: Game.GetSession(''),
@@ -1260,7 +1260,7 @@ if (
                     ) {
                         button.disabled = true;
 
-                        require('js/actions/menu/loader').show();
+                        require('/app/js/actions/menu/loader').show();
                         this.service.propose_fire_bfg(
                             {
                                 session_id: Game.GetSession(),
@@ -1270,7 +1270,7 @@ if (
                             },
                             {
                                 success: function(o) {
-                                    require('js/actions/menu/loader').hide();
+                                    require('/app/js/actions/menu/loader').hide();
                                     this.rpcSuccess(o);
                                     this.proposeMessage.innerHTML =
                                         'Successfully proposed to fire BFG.';
@@ -1295,7 +1295,7 @@ if (
                     miningIdElem = Dom.get('proposeEvictMiningId');
 
                 if (bodyId) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.get_mining_platforms_for_asteroid_in_jurisdiction(
                         {
                             session_id: Game.GetSession(''),
@@ -1304,7 +1304,7 @@ if (
                         },
                         {
                             success: function(o) {
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 var optionValues = [];
                                 var platforms = o.result.platforms;
 
@@ -1526,7 +1526,7 @@ if (
                 var starId = Lib.getSelectedOptionValue(this.starElement),
                     bodyList = Dom.get(this.bodyElement);
 
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.Self.service.get_bodies_for_star_in_jurisdiction(
                     {
                         session_id: Game.GetSession(''),
@@ -1535,7 +1535,7 @@ if (
                     },
                     {
                         success: function(o) {
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.Self.rpcSuccess(o);
 
                             if (bodyList) {
@@ -1609,7 +1609,7 @@ if (
                 button.disabled = true;
 
                 if (body && newName) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.propose_rename_uninhabited(
                         {
                             session_id: Game.GetSession(''),
@@ -1619,7 +1619,7 @@ if (
                         },
                         {
                             success: function(o) {
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.rpcSuccess(o);
 
                                 this.proposeMessage.innerHTML =
@@ -1685,7 +1685,7 @@ if (
                 button.disabled = true;
 
                 if (body && newName) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.propose_rename_uninhabited(
                         {
                             session_id: Game.GetSession(''),
@@ -1695,7 +1695,7 @@ if (
                         },
                         {
                             success: function(o) {
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.rpcSuccess(o);
 
                                 this.proposeMessage.innerHTML =
@@ -2104,7 +2104,7 @@ if (
                 this.hide();
                 var planet = Game.EmpireData.planets[res[1]];
                 //Game.PlanetJump(planet);
-                require('js/actions/menu/map').mapChangePlanet(res[1]);
+                require('/app/js/actions/menu/map').mapChangePlanet(res[1]);
             },
             handleAllianceLink: function(e, el) {
                 Event.stopEvent(e);

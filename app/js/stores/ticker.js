@@ -8,12 +8,12 @@
 var Reflux = require('reflux');
 var _ = require('lodash');
 
-var TickerActions = require('js/actions/ticker');
-var EmpireRPCActions = require('js/actions/rpc/empire');
-var UserActions = require('js/actions/user');
+var TickerActions = require('/app/js/actions/ticker');
+var EmpireRPCActions = require('/app/js/actions/rpc/empire');
+var UserActions = require('/app/js/actions/user');
 
-var StatefulStore = require('js/stores/mixins/stateful');
-var clone = require('js/util').clone;
+var StatefulStore = require('/app/js/stores/mixins/stateful');
+var clone = require('/app/js/util').clone;
 
 var INTERVAL_TIME = 1000;
 

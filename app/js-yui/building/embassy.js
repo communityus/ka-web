@@ -1,6 +1,6 @@
 YAHOO.namespace('lacuna.buildings');
 
-var constants = require('js/constants');
+var constants = require('/app/js/constants');
 
 if (
     typeof YAHOO.lacuna.buildings.Embassy == 'undefined' ||
@@ -225,7 +225,7 @@ if (
                     function(e) {
                         if (e.newValue) {
                             if (!this.props) {
-                                require('js/actions/menu/loader').show();
+                                require('/app/js/actions/menu/loader').show();
                                 this.service.view_propositions(
                                     {
                                         session_id: Game.GetSession(),
@@ -233,7 +233,7 @@ if (
                                     },
                                     {
                                         success: function(o) {
-                                            require('js/actions/menu/loader').hide();
+                                            require('/app/js/actions/menu/loader').hide();
                                             this.rpcSuccess(o);
                                             this.props = o.result.propositions;
 
@@ -464,7 +464,7 @@ if (
             //Stash
             getStash: function(e) {
                 if (e.newValue) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.view_stash(
                         {
                             session_id: Game.GetSession(),
@@ -472,7 +472,7 @@ if (
                         },
                         {
                             success: function(o) {
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.rpcSuccess(o);
 
                                 delete o.result.status;
@@ -874,7 +874,7 @@ if (
                     }
 
                     Dom.get('embassyStashMessage').innerHTML = '';
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     serviceFunc(data, {
                         success: function(o) {
                             this.rpcSuccess(o);
@@ -907,7 +907,7 @@ if (
                             this.stash = o.result;
                             this.StashPopulate();
 
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                         },
                         scope: this,
                     });
@@ -945,7 +945,7 @@ if (
                             this.addTab(this._getSendTab());
                             this.removeTab(this.createTab);
                             this.MembersPopulate();
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                         },
                         scope: this,
                     });
@@ -955,7 +955,7 @@ if (
             //View Invites
             getInvites: function(e) {
                 if (e.newValue) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.get_my_invites(
                         {
                             session_id: Game.GetSession(),
@@ -968,7 +968,7 @@ if (
                                     'info',
                                     'Embassy.get_my_invites.success'
                                 );
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.rpcSuccess(o);
 
                                 this.invites = o.result.invites;
@@ -1103,7 +1103,7 @@ if (
                                 this.Self.removeTab(this.Self.createTab);
                                 this.Self.MembersPopulate();
 
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                             },
                             scope: this,
                         }
@@ -1148,7 +1148,7 @@ if (
                                     }
                                 }
                                 this.Line.parentNode.removeChild(this.Line);
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                             },
                             scope: this,
                         }
@@ -1195,7 +1195,7 @@ if (
                                 );
                             });
                             a.animate();
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                         },
                         scope: this,
                     }
@@ -1233,7 +1233,7 @@ if (
                                     this.removeTab(this.sendTab);
                                 }
                                 this.addTab(this._getCreateTab());
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                             },
                             scope: this,
                         }
@@ -1270,7 +1270,7 @@ if (
                                     this.removeTab(this.sendTab);
                                 }
                                 this.addTab(this._getCreateTab());
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                             },
                             scope: this,
                         }
@@ -1285,7 +1285,7 @@ if (
                         this._createSendToSelect();
                     }
 
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.get_pending_invites(
                         {
                             session_id: Game.GetSession(),
@@ -1298,7 +1298,7 @@ if (
                                     'info',
                                     'Embassy.get_pending_invites.success'
                                 );
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.rpcSuccess(o);
 
                                 this.pendingInvites = o.result.invites;
@@ -1406,7 +1406,7 @@ if (
                                     }
                                 }
                                 this.Line.parentNode.removeChild(this.Line);
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                             },
                             scope: this,
                         }
@@ -1440,7 +1440,7 @@ if (
                                 Dom.get('embassySendMessage').value = '';
                                 this.getPendingInvites({ newValue: 1 });
 
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                             },
                             scope: this,
                         }
@@ -1560,7 +1560,7 @@ if (
                                 this.Self.rpcSuccess(o);
                                 this.Self.alliance = o.result.alliance;
                                 this.Self.MembersPopulate();
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                             },
                             scope: this,
                         }
@@ -1604,7 +1604,7 @@ if (
                                 this.Self.removeTab(this.Self.invitesTab);
                                 this.Self.addTab(this.Self._getInvitesTab());
                                 this.Self.removeTab(this.Self.sendTab);
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                             },
                             scope: this,
                         }
@@ -1883,7 +1883,7 @@ if (
                 this.hide();
                 var planet = Game.EmpireData.planets[res[1]];
                 //Game.PlanetJump(planet);
-                require('js/actions/menu/map').mapChangePlanet(res[1]);
+                require('/app/js/actions/menu/map').mapChangePlanet(res[1]);
             },
             handleAllianceLink: function(e, el) {
                 Event.stopEvent(e);

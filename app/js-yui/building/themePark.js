@@ -52,7 +52,7 @@ if (
             },
 
             operate: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
 
                 this.service.operate(
                     {
@@ -61,7 +61,7 @@ if (
                     },
                     {
                         success: function(o) {
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
 
                             this.updateDisplay(o.result);

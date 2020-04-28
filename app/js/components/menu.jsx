@@ -4,15 +4,15 @@ var React = require('react');
 var createReactClass = require('create-react-class');
 var Reflux = require('reflux');
 
-var TopBar = require('js/components/menu/topBar');
-var BottomBar = require('js/components/menu/bottomBar');
+var TopBar = require('/app/js/components/menu/topBar');
+var BottomBar = require('/app/js/components/menu/bottomBar');
 
-var LeftSidebarButton = require('js/components/menu/leftSidebarButton');
-var RightSidebarButton = require('js/components/menu/rightSidebarButton');
+var LeftSidebarButton = require('/app/js/components/menu/leftSidebarButton');
+var RightSidebarButton = require('/app/js/components/menu/rightSidebarButton');
 
-var Loader = require('js/components/menu/loader');
+var Loader = require('/app/js/components/menu/loader');
 
-var MenuStore = require('js/stores/menu');
+var MenuStore = require('/app/js/stores/menu');
 
 var Menu = createReactClass({
     displayName: 'Menu',

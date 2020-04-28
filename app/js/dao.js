@@ -1,28 +1,28 @@
 'use strict';
 
-var server = require('js/server');
+var server = require('/app/js/server');
 var _ = require('lodash');
 
 // TODO Can we replace this with a function to recursively require them?
 
-require('js/dao/stats');
-require('js/dao/empire');
-require('js/dao/captcha');
-require('js/dao/essentiaVein');
-require('js/dao/intelTraining');
-require('js/dao/mayhemTraining');
-require('js/dao/politicsTraining');
-require('js/dao/theftTraining');
-require('js/dao/genericBuilding');
-require('js/dao/shipyard');
-require('js/dao/spacePort');
-require('js/dao/trade');
-require('js/dao/transporter');
-require('js/dao/map');
-require('js/dao/body');
-require('js/dao/ws');
+require('/app/js/dao/stats');
+require('/app/js/dao/empire');
+require('/app/js/dao/captcha');
+require('/app/js/dao/essentiaVein');
+require('/app/js/dao/intelTraining');
+require('/app/js/dao/mayhemTraining');
+require('/app/js/dao/politicsTraining');
+require('/app/js/dao/theftTraining');
+require('/app/js/dao/genericBuilding');
+require('/app/js/dao/shipyard');
+require('/app/js/dao/spacePort');
+require('/app/js/dao/trade');
+require('/app/js/dao/transporter');
+require('/app/js/dao/map');
+require('/app/js/dao/body');
+require('/app/js/dao/ws');
 
-require('js/ws');
+require('/app/js/ws');
 
 module.exports.makeServerCall = function(uri, options, actions) {
     var defaults = {

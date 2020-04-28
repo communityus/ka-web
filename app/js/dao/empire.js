@@ -1,8 +1,8 @@
 'use strict';
 
-var dao = require('js/dao');
-var vex = require('js/vex');
-var EmpireRPCActions = require('js/actions/rpc/empire');
+var dao = require('/app/js/dao');
+var vex = require('/app/js/vex');
+var EmpireRPCActions = require('/app/js/actions/rpc/empire');
 
 function makeEmpireCall(options) {
     dao.makeServerCall('empire', options, EmpireRPCActions);

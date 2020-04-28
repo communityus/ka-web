@@ -78,7 +78,7 @@ if (
             GetProbes: function(e) {
                 if (e.newValue) {
                     if (!this.probes) {
-                        require('js/actions/menu/loader').show();
+                        require('/app/js/actions/menu/loader').show();
                         this.service.get_probed_stars(
                             {
                                 session_id: Game.GetSession(),
@@ -92,7 +92,7 @@ if (
                                         'info',
                                         'Observatory.get_probed_stars.success'
                                     );
-                                    require('js/actions/menu/loader').hide();
+                                    require('/app/js/actions/menu/loader').hide();
                                     this.rpcSuccess(o);
                                     this.ProbeInfoDisplay(o.result);
                                     this.probes = o.result.stars;
@@ -219,7 +219,7 @@ if (
                 }
             },
             ProbesHandlePagination: function(newState) {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.service.get_probed_stars(
                     {
                         session_id: Game.GetSession(),
@@ -233,7 +233,7 @@ if (
                                 'info',
                                 'Observatory.ProbesHandlePagination.get_probed_stars.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
                             this.probes = o.result.stars;
                             // Update the Paginator's state
@@ -255,7 +255,7 @@ if (
                             ].join('')
                         )
                     ) {
-                        require('js/actions/menu/loader').show();
+                        require('/app/js/actions/menu/loader').show();
                         this.service.abandon_probe(
                             {
                                 session_id: Game.GetSession(),
@@ -269,7 +269,7 @@ if (
                                         'info',
                                         'Observatory.ProbeAction.abandon_probe.success'
                                     );
-                                    require('js/actions/menu/loader').hide();
+                                    require('/app/js/actions/menu/loader').hide();
                                     this.rpcSuccess(o);
                                     Event.purgeElement(container);
                                     container.parentNode.removeChild(container);
@@ -292,7 +292,7 @@ if (
                         'Are you sure you want to abandon all probes controlled by this Observatory?'
                     )
                 ) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.abandon_all_probes(
                         {
                             session_id: Game.GetSession(),
@@ -305,7 +305,7 @@ if (
                                     'info',
                                     'Observatory.AbandonAllProbes.abandon_all_probes.success'
                                 );
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.rpcSuccess(o);
                                 this.probes = null;
 

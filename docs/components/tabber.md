@@ -1,6 +1,6 @@
 # Tabber
 
-`require('js/components/tabber')`
+`require('/app/js/components/tabber')`
 
 `Tabber` is a wrapper around [react-tabs](https://github.com/rackt/react-tabs) with a few tweaks made to suit the purposes of the client. Therefore, anything on covered in this document is likely explained in the [react-tabs documentation](https://github.com/rackt/react-tabs#example).
 
@@ -10,7 +10,7 @@ Using `Tabber` is exactly the same as using `react-tabs` except for:
 # Example
 
 ```javascript
-var Tabber = require('js/components/tabber');
+var Tabber = require('/app/js/components/tabber');
 var Tabs   = Tabber.Tabs;
 var Tab    = Tabber.Tab;
 

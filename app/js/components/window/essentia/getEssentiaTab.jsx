@@ -4,13 +4,13 @@ var PropTypes = require('prop-types');
 
 var React = require('react');
 
-var EmpireRPCActions = require('js/actions/rpc/empire');
+var EmpireRPCActions = require('/app/js/actions/rpc/empire');
 
-var WindowActions = require('js/actions/window');
+var WindowActions = require('/app/js/actions/window');
 
-var InviteWindow = require('js/components/window/invite');
+var InviteWindow = require('/app/js/components/window/invite');
 
-var constants = require('js/constants');
+var constants = require('/app/js/constants');
 
 class GetEssentiaTab extends React.Component {
     static propTypes = {

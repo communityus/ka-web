@@ -178,7 +178,7 @@ if (
             spiesView: function(e) {
                 if (e.newValue) {
                     if (!this.spies) {
-                        require('js/actions/menu/loader').show();
+                        require('/app/js/actions/menu/loader').show();
                         this.service.view_spies(
                             {
                                 session_id: Game.GetSession(),
@@ -191,7 +191,7 @@ if (
                                         'info',
                                         'Intelligence.Intelligence.view_spies.success'
                                     );
-                                    require('js/actions/menu/loader').hide();
+                                    require('/app/js/actions/menu/loader').hide();
                                     this.rpcSuccess(o);
                                     this.spies = o.result;
                                     this.pager = new Pager({
@@ -514,7 +514,7 @@ if (
                 }
             },
             SpyHandlePagination: function(newState) {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.service.view_spies(
                     {
                         session_id: Game.GetSession(),
@@ -528,7 +528,7 @@ if (
                                 'info',
                                 'Intelligence.SpyHandlePagination.view_spies.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
                             this.spies = o.result;
                             this.SpyPopulate();
@@ -553,7 +553,7 @@ if (
                 }
             },
             SpyAssign: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 var assign = this.Assign[this.Assign.selectedIndex].value;
 
                 this.Self.service.assign_spy(
@@ -570,7 +570,7 @@ if (
                                 'info',
                                 'Intelligence.SpyAssign.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.Self.rpcSuccess(o);
                             //delete this.Self.spies; /* Can't delete it, we need it later */
                             var spy = o.result.spy;
@@ -612,7 +612,7 @@ if (
                         ].join('')
                     )
                 ) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
 
                     this.Self.service.burn_spy(
                         {
@@ -627,7 +627,7 @@ if (
                                     'info',
                                     'Intelligence.SpyBurn.success'
                                 );
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.Self.rpcSuccess(o);
                                 var spies = this.Self.spies.spies;
                                 for (var i = 0; i < spies.length; i++) {
@@ -670,7 +670,7 @@ if (
             },
             SpyNameSave: function(e) {
                 Event.stopEvent(e);
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 var newName = this.Input.value;
 
                 this.Self.service.name_spy(
@@ -687,7 +687,7 @@ if (
                                 'info',
                                 'Intelligence.SpyNameSave.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.Self.rpcSuccess(o);
                             //this.Self.spies = undefined; /* Can't delete it, we need it later */
                             this.Spy.name = newName;
@@ -726,7 +726,7 @@ if (
                     Lang.isNumber(num) &&
                     num <= this.result.spies.maximum - this.result.spies.current
                 ) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.train_spy(
                         {
                             session_id: Game.GetSession(),
@@ -740,7 +740,7 @@ if (
                                     'info',
                                     'Intelligence.SpyTrain.success'
                                 );
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.rpcSuccess(o);
                                 var trained = o.result.trained * 1;
                                 if (trained > 0) {
@@ -767,7 +767,7 @@ if (
                 }
             },
             Subsidize: function(e) {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 Dom.get('spiesSubsidize').disabled = true;
 
                 this.service.subsidize_training(
@@ -777,7 +777,7 @@ if (
                     },
                     {
                         success: function(o) {
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
 
                             delete this.spies;
@@ -791,7 +791,7 @@ if (
                 );
             },
             RenameAll: function(e) {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 Dom.get('spiesRename').disabled = true;
 
                 var prefix = Dom.get('spiesRenamePrefix').value,
@@ -810,7 +810,7 @@ if (
                     },
                     {
                         success: function(o) {
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
                             Dom.get('spiesRename').disabled = false;
                         },

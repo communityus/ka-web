@@ -96,7 +96,7 @@ if (
             viewPlatforms: function(e) {
                 if (e.newValue) {
                     if (!this.platforms) {
-                        require('js/actions/menu/loader').show();
+                        require('/app/js/actions/menu/loader').show();
                         this.service.view_platforms(
                             {
                                 session_id: Game.GetSession(),
@@ -109,7 +109,7 @@ if (
                                         'info',
                                         'MiningMinistry.view_platforms.success'
                                     );
-                                    require('js/actions/menu/loader').hide();
+                                    require('/app/js/actions/menu/loader').hide();
                                     this.rpcSuccess(o);
                                     this.platforms = {
                                         max_platforms: o.result.max_platforms,
@@ -340,7 +340,7 @@ if (
                         ].join('')
                     )
                 ) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
 
                     this.Self.service.abandon_platform(
                         {
@@ -355,7 +355,7 @@ if (
                                     'info',
                                     'MiningMinistry.MiningMinistryPlatformAbandon.success'
                                 );
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.Self.rpcSuccess(o);
                                 var platforms = this.Self.platforms.platforms;
                                 for (var i = 0; i < platforms.length; i++) {
@@ -372,7 +372,7 @@ if (
                 }
             },
             MiningMinistryShipsView: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.service.view_ships(
                     {
                         session_id: Game.GetSession(),
@@ -385,7 +385,7 @@ if (
                                 'info',
                                 'MiningMinistry.MiningMinistryShipsView.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
                             this.ships = o.result.ships;
 
@@ -487,7 +487,7 @@ if (
                 }
             },
             MiningMinistryShipsAdd: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
 
                 this.Self.service.add_cargo_ship_to_fleet(
                     {
@@ -502,7 +502,7 @@ if (
                                 'info',
                                 'MiningMinistry.MiningMinistryShipsAdd.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
                             this.MiningMinistryShipsView();
                             delete this.platforms; //reset platforms so we geto the new correct info
@@ -512,7 +512,7 @@ if (
                 );
             },
             MiningMinistryShipsRemove: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
 
                 this.Self.service.remove_cargo_ship_from_fleet(
                     {
@@ -527,7 +527,7 @@ if (
                                 'info',
                                 'MiningMinistry.MiningMinistryShipsRemove.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
                             this.MiningMinistryShipsView();
                             delete this.platforms; //reset platforms so we go get the new correct info
@@ -542,7 +542,7 @@ if (
                         'Are you sure you want to abandon all platforms controlled by this Mining Ministry?'
                     )
                 ) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.mass_abandon_platform(
                         {
                             session_id: Game.GetSession(),
@@ -555,7 +555,7 @@ if (
                                     'info',
                                     'Observatory.AbandonAllPlatforms.mass_abandon_platform.success'
                                 );
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.rpcSuccess(o);
                                 this.probes = null;
 

@@ -4,11 +4,11 @@ var React = require('react');
 var createReactClass = require('create-react-class');
 var Reflux = require('reflux');
 
-var BodyRPCGetBodyStatusStore = require('js/stores/rpc/body/getBodyStatus');
+var BodyRPCGetBodyStatusStore = require('/app/js/stores/rpc/body/getBodyStatus');
 
-var PlanetPanelLine = require('js/components/window/planetPanel/line');
+var PlanetPanelLine = require('/app/js/components/window/planetPanel/line');
 
-var constants = require('js/constants');
+var constants = require('/app/js/constants');
 
 var PlanetDetails = createReactClass({
     displayName: 'PlanetDetails',

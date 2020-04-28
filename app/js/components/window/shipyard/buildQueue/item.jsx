@@ -4,12 +4,12 @@ var PropTypes = require('prop-types');
 
 var React = require('react');
 
-var ResourceAttribute = require('js/components/window/shipyard/resourceAttribute');
-var SubsidizeButton = require('js/components/window/shipyard/buildQueue/subsidizeButton');
-var CountdownTimer = require('js/components/countdownTimer');
+var ResourceAttribute = require('/app/js/components/window/shipyard/resourceAttribute');
+var SubsidizeButton = require('/app/js/components/window/shipyard/buildQueue/subsidizeButton');
+var CountdownTimer = require('/app/js/components/countdownTimer');
 
-var util = require('js/util');
-var constants = require('js/constants');
+var util = require('/app/js/util');
+var constants = require('/app/js/constants');
 
 class BuildQueueItem extends React.Component {
     static propTypes = {

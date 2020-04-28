@@ -102,7 +102,7 @@ if (typeof YAHOO.lacuna.Library == 'undefined' || !YAHOO.lacuna.Library) {
         var Util = YAHOO.util,
             Lang = YAHOO.lang,
             Dom = Util.Dom,
-            util = require('js/util'),
+            util = require('/app/js/util'),
             assetUrl = process.env.KA_ASSETS_URL;
 
         var Library = {

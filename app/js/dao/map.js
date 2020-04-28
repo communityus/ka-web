@@ -1,3 +1,3 @@
 'use strict';
 
-require('js/dao/map/getStarChunk');
+require('/app/js/dao/map/getStarChunk');

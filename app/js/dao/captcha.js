@@ -1,8 +1,8 @@
 'use strict';
 
-var CaptchaRPCActions = require('js/actions/rpc/captcha');
+var CaptchaRPCActions = require('/app/js/actions/rpc/captcha');
 
-var dao = require('js/dao');
+var dao = require('/app/js/dao');
 
 function makeCaptchaCall(options) {
     dao.makeServerCall('captcha', options, CaptchaRPCActions);

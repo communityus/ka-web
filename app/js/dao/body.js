@@ -1,7 +1,7 @@
 'use strict';
 
-var dao = require('js/dao');
-var BodyRPCActions = require('js/actions/rpc/body');
+var dao = require('/app/js/dao');
+var BodyRPCActions = require('/app/js/actions/rpc/body');
 
 function makeBodyCall(options) {
     dao.makeServerCall('body', options, BodyRPCActions);

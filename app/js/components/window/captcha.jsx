@@ -6,11 +6,11 @@ var React = require('react');
 var createReactClass = require('create-react-class');
 var Reflux = require('reflux');
 
-var CaptchaWindowActions = require('js/actions/windows/captcha');
-var CaptchaRPCActions = require('js/actions/rpc/captcha');
-var WindowActions = require('js/actions/window');
+var CaptchaWindowActions = require('/app/js/actions/windows/captcha');
+var CaptchaRPCActions = require('/app/js/actions/rpc/captcha');
+var WindowActions = require('/app/js/actions/window');
 
-var CaptchaRPCStore = require('js/stores/rpc/captcha');
+var CaptchaRPCStore = require('/app/js/stores/rpc/captcha');
 
 var Captcha = createReactClass({
     displayName: 'Captcha',

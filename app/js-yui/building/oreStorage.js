@@ -178,7 +178,7 @@ if (
                             'You must specify an amount greater than zero.';
                         Lib.fadeOutElm('dumpMessage');
                     } else {
-                        require('js/actions/menu/loader').show();
+                        require('/app/js/actions/menu/loader').show();
                         this.service.dump(
                             {
                                 session_id: Game.GetSession(),
@@ -211,7 +211,7 @@ if (
                                             ' to waste.';
                                         Lib.fadeOutElm('dumpMessage');
                                     }
-                                    require('js/actions/menu/loader').hide();
+                                    require('/app/js/actions/menu/loader').hide();
                                 },
                                 scope: this,
                             }

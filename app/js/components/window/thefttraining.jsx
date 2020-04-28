@@ -6,17 +6,17 @@ var React = require('react');
 var createReactClass = require('create-react-class');
 var Reflux = require('reflux');
 
-var GenericBuildingStore = require('js/stores/genericBuilding');
+var GenericBuildingStore = require('/app/js/stores/genericBuilding');
 
-var WindowActions = require('js/actions/window');
-var BuildingWindowActions = require('js/actions/windows/building');
-var TheftTrainingRPCActions = require('js/actions/rpc/theftTraining');
+var WindowActions = require('/app/js/actions/window');
+var BuildingWindowActions = require('/app/js/actions/windows/building');
+var TheftTrainingRPCActions = require('/app/js/actions/rpc/theftTraining');
 
-var StandardTabs = require('js/components/window/building/standardTabs');
-var BuildingInformation = require('js/components/window/building/information');
-var SpyTrainingStatus = require('js/components/window/spyTraining/spyTrainingStatus');
+var StandardTabs = require('/app/js/components/window/building/standardTabs');
+var BuildingInformation = require('/app/js/components/window/building/information');
+var SpyTrainingStatus = require('/app/js/components/window/spyTraining/spyTrainingStatus');
 
-var Tabber = require('js/components/tabber');
+var Tabber = require('/app/js/components/tabber');
 var Tabs = Tabber.Tabs;
 var Tab = Tabber.Tab;
 

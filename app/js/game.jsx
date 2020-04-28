@@ -7,19 +7,19 @@ var ReactDom = require('react-dom');
 var _ = require('lodash');
 var ReactTooltip = require('react-tooltip');
 
-var KeyboardActions = require('js/actions/keyboard');
-var MenuActions = require('js/actions/menu');
-var SessionActions = require('js/actions/session');
-var TickerActions = require('js/actions/ticker');
-var UserActions = require('js/actions/user');
-var WindowActions = require('js/actions/window');
+var KeyboardActions = require('/app/js/actions/keyboard');
+var MenuActions = require('/app/js/actions/menu');
+var SessionActions = require('/app/js/actions/session');
+var TickerActions = require('/app/js/actions/ticker');
+var UserActions = require('/app/js/actions/user');
+var WindowActions = require('/app/js/actions/window');
 
-var GameWindow = require('js/components/gameWindow');
-var Captcha = require('js/components/window/captcha');
+var GameWindow = require('/app/js/components/gameWindow');
+var Captcha = require('/app/js/components/window/captcha');
 
-var BodyRPCStore = require('js/stores/rpc/body');
+var BodyRPCStore = require('/app/js/stores/rpc/body');
 
-var constants = require('js/constants');
+var constants = require('/app/js/constants');
 
 if (typeof YAHOO.lacuna.Game === 'undefined' || !YAHOO.lacuna.Game) {
     (function() {
@@ -49,8 +49,8 @@ if (typeof YAHOO.lacuna.Game === 'undefined' || !YAHOO.lacuna.Game) {
                 // Normally, React Components should do this automatically, but since we need these
                 // stores operating immeadiatly we do it here.
                 // TODO: remove this!
-                require('js/stores/user').listen(_.noop);
-                require('js/stores/ticker').listen(_.noop);
+                require('/app/js/stores/user').listen(_.noop);
+                require('/app/js/stores/ticker').listen(_.noop);
 
                 var body = document.getElementById('body');
 
@@ -61,7 +61,7 @@ if (typeof YAHOO.lacuna.Game === 'undefined' || !YAHOO.lacuna.Game) {
 
                 ReactDom.render(<GameWindow />, document.getElementById('mainGameContainer'));
 
-                require('js/actions/menu/loader').loaderMenuShow();
+                require('/app/js/actions/menu/loader').loaderMenuShow();
 
                 // add overlay manager functionality
                 Game.OverlayManager.hideAllBut = function(id) {
@@ -91,7 +91,7 @@ if (typeof YAHOO.lacuna.Game === 'undefined' || !YAHOO.lacuna.Game) {
                 );
 
                 // get resources right away since they don't depend on anything.
-                Game.Resources = require('js/resources');
+                Game.Resources = require('/app/js/resources');
                 Game.PreloadUI();
 
                 Game.Services = Game.InitServices(YAHOO.lacuna.SMD.Services);
@@ -249,7 +249,7 @@ if (typeof YAHOO.lacuna.Game === 'undefined' || !YAHOO.lacuna.Game) {
                 this.InitLogin();
                 Lacuna.Game.LoginDialog.show(error);
                 MenuActions.menuHide();
-                require('js/actions/menu/loader').loaderMenuHide();
+                require('/app/js/actions/menu/loader').loaderMenuHide();
             },
             Run: function() {
                 // set our interval going for resource calcs since Logout clears it
@@ -348,7 +348,7 @@ if (typeof YAHOO.lacuna.Game === 'undefined' || !YAHOO.lacuna.Game) {
                                 }
                             };
                             YAHOO.log(o, 'error', logNS);
-                            require('js/actions/menu/loader').loaderMenuHide();
+                            require('/app/js/actions/menu/loader').loaderMenuHide();
                             Game.Failure(o, retry, failure);
                         },
                     };
@@ -580,7 +580,7 @@ if (typeof YAHOO.lacuna.Game === 'undefined' || !YAHOO.lacuna.Game) {
             StarJump: function(star) {
                 YAHOO.log(star, 'debug', 'StarJump');
                 Game.OverlayManager.hideAll();
-                require('js/stores/menu/mapMode').setMapMode('starMap');
+                require('/app/js/stores/menu/mapMode').setMapMode('starMap');
                 // Lacuna.MapPlanet.MapVisible(false);
                 // Lacuna.MapStar.MapVisible(true);
                 Lacuna.MapStar.Jump(star.x * 1, star.y * 1);

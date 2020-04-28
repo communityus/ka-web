@@ -1,9 +1,9 @@
 'use strict';
 
-var dao = require('js/dao');
+var dao = require('/app/js/dao');
 
-var GenericBuildingRPCActions = require('js/actions/rpc/genericBuilding');
-var BuildingWindowActions = require('js/actions/windows/building');
+var GenericBuildingRPCActions = require('/app/js/actions/rpc/genericBuilding');
+var BuildingWindowActions = require('/app/js/actions/windows/building');
 
 function makeGenericBuildingCall(url, options) {
     url = url.replace(/^\//, '');

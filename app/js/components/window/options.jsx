@@ -4,7 +4,7 @@ var React = require('react');
 var createReactClass = require('create-react-class');
 var Reflux = require('reflux');
 
-var OptionsWindowStore = require('js/stores/windows/options');
+var OptionsWindowStore = require('/app/js/stores/windows/options');
 
 var OptionsWindow = createReactClass({
     displayName: 'OptionsWindow',

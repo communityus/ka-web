@@ -1,19 +1,19 @@
 'use strict';
 
 var _ = require('lodash');
-var util = require('js/util');
+var util = require('/app/js/util');
 
-var LoaderMenuActions = require('js/actions/menu/loader');
-var SessionStore = require('js/stores/session');
-var ServerStatusActions = require('js/actions/serverStatus');
-var BodyStatusActions = require('js/actions/bodyStatus');
-var EmpireStatusActions = require('js/actions/empireStatus');
+var LoaderMenuActions = require('/app/js/actions/menu/loader');
+var SessionStore = require('/app/js/stores/session');
+var ServerStatusActions = require('/app/js/actions/serverStatus');
+var BodyStatusActions = require('/app/js/actions/bodyStatus');
+var EmpireStatusActions = require('/app/js/actions/empireStatus');
 
-var WindowActions = require('js/actions/window');
+var WindowActions = require('/app/js/actions/window');
 
-var Captcha = require('js/components/window/captcha');
+var Captcha = require('/app/js/components/window/captcha');
 
-var constants = require('js/constants');
+var constants = require('/app/js/constants');
 
 var defaults = {
     module: '',

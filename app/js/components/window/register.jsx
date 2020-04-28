@@ -2,7 +2,7 @@
 
 var React = require('react');
 
-var WindowActions = require('js/actions/window');
+var WindowActions = require('/app/js/actions/window');
 
 class RegisterWindow extends React.Component {
     static options = {

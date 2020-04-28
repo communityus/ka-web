@@ -2,10 +2,10 @@
 
 var Reflux = require('reflux');
 
-var WindowMixinStores = require('js/stores/mixins/window');
+var WindowMixinStores = require('/app/js/stores/mixins/window');
 
-var NotesWindowActions = require('js/actions/windows/notes');
-var KeyboardActions = require('js/actions/keyboard');
+var NotesWindowActions = require('/app/js/actions/windows/notes');
+var KeyboardActions = require('/app/js/actions/keyboard');
 
 var NotesWindowStore = Reflux.createStore({
     mixins: [WindowMixinStores],

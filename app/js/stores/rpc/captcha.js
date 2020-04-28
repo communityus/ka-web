@@ -1,13 +1,13 @@
 'use strict';
 
 var Reflux = require('reflux');
-var StatefulMixinStore = require('js/stores/mixins/stateful');
+var StatefulMixinStore = require('/app/js/stores/mixins/stateful');
 
-var CaptchaWindowActions = require('js/actions/windows/captcha');
-var CaptchaRPCActions = require('js/actions/rpc/captcha');
-var WindowsActions = require('js/actions/window');
+var CaptchaWindowActions = require('/app/js/actions/windows/captcha');
+var CaptchaRPCActions = require('/app/js/actions/rpc/captcha');
+var WindowsActions = require('/app/js/actions/window');
 
-var clone = require('js/util').clone;
+var clone = require('/app/js/util').clone;
 
 var CaptchaRPCStore = Reflux.createStore({
     listenables: [CaptchaWindowActions, CaptchaRPCActions],

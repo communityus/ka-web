@@ -3,9 +3,9 @@
 var Reflux = require('reflux');
 var _ = require('lodash');
 
-var StatefulMixinStore = require('js/stores/mixins/stateful');
+var StatefulMixinStore = require('/app/js/stores/mixins/stateful');
 
-var StatsRPCActions = require('js/actions/rpc/stats');
+var StatsRPCActions = require('/app/js/actions/rpc/stats');
 
 var CreditsStatsRPCStore = Reflux.createStore({
     listenables: [StatsRPCActions],

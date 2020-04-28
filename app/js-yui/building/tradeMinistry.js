@@ -816,7 +816,7 @@ if (
 
             getGlyphSummary: function(force) {
                 if (force || !this.glyph_summary) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.get_glyph_summary(
                         {
                             session_id: Game.GetSession(''),
@@ -828,7 +828,7 @@ if (
                                 this.glyph_summary = o.result.glyphs;
                                 this.glyphSize = o.result.cargo_space_used_each;
                                 this.fireEvent('onLoadGlyphSummary');
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                             },
                             scope: this,
                         }
@@ -838,7 +838,7 @@ if (
 
             getPlanSummary: function(force) {
                 if (force || !this.plan_summary) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.get_plan_summary(
                         {
                             session_id: Game.GetSession(''),
@@ -850,7 +850,7 @@ if (
                                 this.plan_summary = o.result.plans;
                                 this.planSize = o.result.cargo_space_used_each;
                                 this.fireEvent('onLoadPlanSummary');
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                             },
                             scope: this,
                         }
@@ -859,7 +859,7 @@ if (
             },
             getPrisoners: function(force) {
                 if (force || !this.prisoners) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.get_prisoners(
                         {
                             session_id: Game.GetSession(''),
@@ -871,7 +871,7 @@ if (
                                 this.prisoners = o.result.prisoners;
                                 this.spySize = o.result.cargo_space_used_each;
                                 this.fireEvent('onLoadPrisoners');
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                             },
                             scope: this,
                         }
@@ -880,7 +880,7 @@ if (
             },
             getShipSummary: function(force) {
                 if (force || !this.ship_summary) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.get_ship_summary(
                         {
                             session_id: Game.GetSession(''),
@@ -892,7 +892,7 @@ if (
                                 this.ship_summary = o.result.ships;
                                 this.shipSize = o.result.cargo_space_used_each;
                                 this.fireEvent('onLoadShipSummary');
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                             },
                             scope: this,
                         }
@@ -904,7 +904,7 @@ if (
                     this.result.building.efficiency >= 100 &&
                     (force || !this.resources)
                 ) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.get_stored_resources(
                         {
                             session_id: Game.GetSession(''),
@@ -915,7 +915,7 @@ if (
                                 this.rpcSuccess(o);
                                 this.resources = o.result.resources;
                                 this.fireEvent('onLoadResources');
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                             },
                             scope: this,
                         }
@@ -926,7 +926,7 @@ if (
             //View Available
             getAvailableTrades: function(e) {
                 if (e.newValue) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     var data = {
                             session_id: Game.GetSession(),
                             building_id: this.building.id,
@@ -943,7 +943,7 @@ if (
                                 'info',
                                 'Trade.view_available_trades.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
 
                             delete o.result.status; //get rid of status after we process it, since it's big
@@ -1071,7 +1071,7 @@ if (
                 }
             },
             AvailableHandlePagination: function(newState) {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 var data = {
                         session_id: Game.GetSession(),
                         building_id: this.building.id,
@@ -1088,7 +1088,7 @@ if (
                             'info',
                             'Trade.view_available_trades.success'
                         );
-                        require('js/actions/menu/loader').hide();
+                        require('/app/js/actions/menu/loader').hide();
                         this.rpcSuccess(o);
 
                         delete o.result.status; //get rid of status after we process it, since it's big
@@ -1103,7 +1103,7 @@ if (
                 this.availablePager.setState(newState);
             },
             AvailableAccept: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.Self.service.accept_from_market(
                     {
                         session_id: Game.GetSession(''),
@@ -1116,14 +1116,14 @@ if (
                             this.Self.rpcSuccess(o);
                             //force get the new availabe list after accepting so we get a new captcha
                             this.Self.getAvailableTrades({ newValue: true });
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                         },
                         scope: this,
                     }
                 );
             },
             AvailableReport: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.Self.service.report_abuse(
                     {
                         session_id: Game.GetSession(''),
@@ -1142,7 +1142,7 @@ if (
                                 btn.parentNode.removeChild(btn);
                             }
                             this.Self.rpcSuccess(o);
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                         },
                         scope: this,
                     }
@@ -1155,7 +1155,7 @@ if (
             //View Mine
             getMyTrades: function(e) {
                 if (e.newValue) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.view_my_market(
                         {
                             session_id: Game.GetSession(),
@@ -1169,7 +1169,7 @@ if (
                                     'info',
                                     'Trade.view_my_trades.success'
                                 );
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.rpcSuccess(o);
 
                                 delete o.result.status; //get rid of status after we process it, since it's big
@@ -1272,7 +1272,7 @@ if (
                 }
             },
             MineHandlePagination: function(newState) {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.service.view_my_market(
                     {
                         session_id: Game.GetSession(),
@@ -1286,7 +1286,7 @@ if (
                                 'info',
                                 'Trade.view_available_trades.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
 
                             delete o.result.status; //get rid of status after we process it, since it's big
@@ -1313,7 +1313,7 @@ if (
                         ].join('')
                     )
                 ) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.Self.service.withdraw_from_market(
                         {
                             session_id: Game.GetSession(''),
@@ -1336,7 +1336,7 @@ if (
                                     }
                                 }
                                 this.Line.parentNode.removeChild(this.Line);
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
 
                                 this.Self.getStoredResources(true);
                                 this.Self.getPlanSummary(true);
@@ -1550,7 +1550,7 @@ if (
                 }
             },
             getAddShips: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
 
                 this.service.get_trade_ships(
                     {
@@ -1592,7 +1592,7 @@ if (
                                 }
                             }
 
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                         },
                         scope: this,
                     }
@@ -2069,7 +2069,7 @@ if (
                     }
                 }
 
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.service.add_to_market(data, {
                     success: function(o) {
                         this.rpcSuccess(o);
@@ -2097,7 +2097,7 @@ if (
                         Dom.get('tradeAddAskingQuantity').value = '';
                         Dom.get('tradeAddCargo').innerHTML = '0';
                         this.fireEvent('onSelectTab', this.mineTabIndex);
-                        require('js/actions/menu/loader').hide();
+                        require('/app/js/actions/menu/loader').hide();
                     },
                     scope: this,
                 });
@@ -2306,7 +2306,7 @@ if (
             getPushShips: function() {
                 var targetId = Lib.getSelectedOptionValue('tradePushColony');
                 if (targetId) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.get_trade_ships(
                         {
                             session_id: Game.GetSession(''),
@@ -2348,7 +2348,7 @@ if (
                                     }
                                 }
 
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                             },
                             scope: this,
                         }
@@ -2831,7 +2831,7 @@ if (
                         'Must add items to send to colony.';
                 } else {
                     Dom.get('tradePushMessage').innerHTML = '';
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.push_items(data, {
                         success: function(o) {
                             this.rpcSuccess(o);
@@ -2870,7 +2870,7 @@ if (
                                 '.',
                             ].join('');
                             Lib.fadeOutElm('tradePushMessage');
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             //get new ships since we just sent one
                             this.getPushShips();
                         },
@@ -2971,7 +2971,7 @@ if (
                 Dom.setStyle('supplyChainListNone', 'display', 'none');
 
                 if (!this.supply_chains) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     this.service.view_supply_chains(
                         {
                             session_id: Game.GetSession(),
@@ -2984,7 +2984,7 @@ if (
                                     'info',
                                     'Trade.viewSupplyChainList.success'
                                 );
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.rpcSuccess(o);
                                 this.max_supply_chains =
                                     o.result.max_supply_chains;
@@ -3157,7 +3157,7 @@ if (
                     ),
                     resource_hour = Dom.get('supplyChainAddResourceHour').value;
 
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.Self.service.create_supply_chain(
                     {
                         session_id: Game.GetSession(),
@@ -3173,7 +3173,7 @@ if (
                                 'info',
                                 'Trade.SupplyChainAddNew.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.Self.rpcSuccess(o);
 
                             delete this.Self.supply_chains;
@@ -3184,7 +3184,7 @@ if (
                 );
             },
             SupplyChainUpdate: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.Self.service.update_supply_chain(
                     {
                         session_id: Game.GetSession(),
@@ -3202,7 +3202,7 @@ if (
                                 'info',
                                 'Trade.SupplyChainUpdate.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.Self.rpcSuccess(o);
 
                             delete this.Self.supply_chains;
@@ -3228,7 +3228,7 @@ if (
                 )
                     return;
 
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.Self.service.delete_supply_chain(
                     {
                         session_id: Game.GetSession(),
@@ -3242,7 +3242,7 @@ if (
                                 'info',
                                 'Trade.SupplyChainRemove.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.Self.rpcSuccess(o);
 
                             delete this.Self.supply_chains;
@@ -3259,7 +3259,7 @@ if (
                 var request_count = 0;
 
                 if (!this.supply_chains) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     request_count++;
 
                     this.service.view_supply_chains(
@@ -3276,7 +3276,7 @@ if (
                                 );
                                 request_count--;
                                 if (request_count == 0) {
-                                    require('js/actions/menu/loader').hide();
+                                    require('/app/js/actions/menu/loader').hide();
                                 }
                                 this.rpcSuccess(o);
                                 this.supply_chains = o.result.supply_chains;
@@ -3291,7 +3291,7 @@ if (
                 }
 
                 if (!this.supply_chain_ships) {
-                    require('js/actions/menu/loader').show();
+                    require('/app/js/actions/menu/loader').show();
                     request_count++;
 
                     this.service.get_supply_ships(
@@ -3308,7 +3308,7 @@ if (
                                 );
                                 request_count--;
                                 if (request_count == 0) {
-                                    require('js/actions/menu/loader').hide();
+                                    require('/app/js/actions/menu/loader').hide();
                                 }
                                 this.rpcSuccess(o);
                                 this.supply_chain_ships = o.result.ships;
@@ -3439,7 +3439,7 @@ if (
                 }
             },
             SupplyChainShipAdd: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
 
                 this.Self.service.add_supply_ship_to_fleet(
                     {
@@ -3454,7 +3454,7 @@ if (
                                 'info',
                                 'Trade.SupplyChainShipAdd.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.Self.rpcSuccess(o);
                             var ships = this.Self.supply_chain_ships;
                             for (var i = 0; i < ships.length; i++) {
@@ -3472,7 +3472,7 @@ if (
                 );
             },
             SupplyChainShipRemove: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
 
                 this.Self.service.remove_supply_ship_from_fleet(
                     {
@@ -3487,7 +3487,7 @@ if (
                                 'info',
                                 'Trade.SupplyChainShipRemove.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.Self.rpcSuccess(o);
                             var ships = this.Self.supply_chain_ships;
                             for (var i = 0; i < ships.length; i++) {
@@ -3516,7 +3516,7 @@ if (
                 }
             },
             WasteChainDetails: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.service.view_waste_chains(
                     {
                         session_id: Game.GetSession(),
@@ -3529,7 +3529,7 @@ if (
                                 'info',
                                 'Trade.WasteChainDetails.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
                             this.waste_chain = o.result.waste_chain[0];
 
@@ -3589,7 +3589,7 @@ if (
                 var waste_chain_id = this.Self.waste_chain.id,
                     waste_hour = Dom.get('chainWasteHourInput').value;
 
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.Self.service.update_waste_chain(
                     {
                         session_id: Game.GetSession(),
@@ -3604,7 +3604,7 @@ if (
                                 'info',
                                 'Trade.WasteChainUpdateWasteHour.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.Self.rpcSuccess(o);
 
                             this.Self.WasteChainDetails();
@@ -3624,7 +3624,7 @@ if (
                 Dom.get('chainWasteHourInput').value = waste_hour;
             },
             WasteChainShipsView: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
                 this.service.get_waste_ships(
                     {
                         session_id: Game.GetSession(),
@@ -3637,7 +3637,7 @@ if (
                                 'info',
                                 'Trade.WasteChainShipsView.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
                             this.waste_chain_ships = o.result.ships;
 
@@ -3749,7 +3749,7 @@ if (
                 }
             },
             WasteChainShipAdd: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
 
                 this.Self.service.add_waste_ship_to_fleet(
                     {
@@ -3764,7 +3764,7 @@ if (
                                 'info',
                                 'Trade.WasteChainShipAdd.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.Self.rpcSuccess(o);
                             var ships = this.Self.waste_chain_ships;
                             for (var i = 0; i < ships.length; i++) {
@@ -3782,7 +3782,7 @@ if (
                 );
             },
             WasteChainShipRemove: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
 
                 this.Self.service.remove_waste_ship_from_fleet(
                     {
@@ -3797,7 +3797,7 @@ if (
                                 'info',
                                 'Trade.WasteChainShipRemove.success'
                             );
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.Self.rpcSuccess(o);
                             var ships = this.Self.waste_chain_ships;
                             for (var i = 0; i < ships.length; i++) {

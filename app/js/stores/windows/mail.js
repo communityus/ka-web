@@ -2,10 +2,10 @@
 
 var Reflux = require('reflux');
 
-var WindowMixinStore = require('js/stores/mixins/window');
+var WindowMixinStore = require('/app/js/stores/mixins/window');
 
-var MailWindowActions = require('js/actions/windows/mail');
-var KeyboardActions = require('js/actions/keyboard');
+var MailWindowActions = require('/app/js/actions/windows/mail');
+var KeyboardActions = require('/app/js/actions/keyboard');
 
 var MailWindowStore = Reflux.createStore({
     mixins: [WindowMixinStore],

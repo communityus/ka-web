@@ -2,10 +2,10 @@
 
 var Reflux = require('reflux');
 
-var SessionActions = require('js/actions/session');
-var EmpireRPCActions = require('js/actions/rpc/empire');
+var SessionActions = require('/app/js/actions/session');
+var EmpireRPCActions = require('/app/js/actions/rpc/empire');
 
-var StatefulStore = require('js/stores/mixins/stateful');
+var StatefulStore = require('/app/js/stores/mixins/stateful');
 
 var SessionStore = Reflux.createStore({
     listenables: [SessionActions, EmpireRPCActions],

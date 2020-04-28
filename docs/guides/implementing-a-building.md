@@ -40,7 +40,7 @@ Here's an example:
 ```javascript
 var BUILDINGS = {
     // Other building definitions removed for brevity.
-    '/shipyard' : require('js/components/buildings/shipyard')
+    '/shipyard' : require('/app/js/components/buildings/shipyard')
 }
 ```
 

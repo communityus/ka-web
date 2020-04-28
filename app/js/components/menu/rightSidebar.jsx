@@ -9,13 +9,13 @@ var _ = require('lodash');
 
 var classNames = require('classnames');
 
-var EmpireRPCStore = require('js/stores/rpc/empire');
-var PlanetStore = require('js/stores/menu/planet');
+var EmpireRPCStore = require('/app/js/stores/rpc/empire');
+var PlanetStore = require('/app/js/stores/menu/planet');
 
-var RightSidebarActions = require('js/actions/menu/rightSidebar');
-var MapActions = require('js/actions/menu/map');
+var RightSidebarActions = require('/app/js/actions/menu/rightSidebar');
+var MapActions = require('/app/js/actions/menu/map');
 
-var RightSidebarStore = require('js/stores/menu/rightSidebar');
+var RightSidebarStore = require('/app/js/stores/menu/rightSidebar');
 
 class PlanetListItem extends React.Component {
     static propTypes = {

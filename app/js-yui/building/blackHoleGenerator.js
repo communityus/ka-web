@@ -146,7 +146,7 @@ if (
                 return this.tab;
             },
             bhgGetActions: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
 
                 Dom.setStyle('bhgActions', 'display', 'none');
 
@@ -182,7 +182,7 @@ if (
                     },
                     {
                         success: function(o) {
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
                             this.PopulateBHGTab(target, o.result.tasks);
                         },
@@ -385,7 +385,7 @@ if (
                         { params: rpcParams },
                         {
                             success: function(o) {
-                                require('js/actions/menu/loader').hide();
+                                require('/app/js/actions/menu/loader').hide();
                                 this.Self.rpcSuccess(o);
                                 this.Self.PopulateBHGResult(
                                     target,
@@ -568,7 +568,7 @@ if (
                 }
             },
             cooldownSubsidize: function() {
-                require('js/actions/menu/loader').show();
+                require('/app/js/actions/menu/loader').show();
 
                 this.service.subsidize_cooldown(
                     {
@@ -577,7 +577,7 @@ if (
                     },
                     {
                         success: function(o) {
-                            require('js/actions/menu/loader').hide();
+                            require('/app/js/actions/menu/loader').hide();
                             this.rpcSuccess(o);
 
                             delete this.work;

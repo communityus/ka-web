@@ -1,9 +1,9 @@
 'use strict';
 
-var dao = require('js/dao');
+var dao = require('/app/js/dao');
 
-var TradeRPCActions = require('js/actions/rpc/trade');
-var BuildingWindowActions = require('js/actions/windows/building');
+var TradeRPCActions = require('/app/js/actions/rpc/trade');
+var BuildingWindowActions = require('/app/js/actions/windows/building');
 
 function makeTradeCall(options) {
     dao.makeServerCall('trade', options, TradeRPCActions);

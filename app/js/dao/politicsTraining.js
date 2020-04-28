@@ -1,9 +1,9 @@
 'use strict';
 
-var dao = require('js/dao');
+var dao = require('/app/js/dao');
 
-var PoliticsTrainingRPCActions = require('js/actions/rpc/politicsTraining');
-var BuildingWindowActions = require('js/actions/windows/building');
+var PoliticsTrainingRPCActions = require('/app/js/actions/rpc/politicsTraining');
+var BuildingWindowActions = require('/app/js/actions/windows/building');
 
 function makePoliticsTrainingCall(options) {
     dao.makeServerCall('politicstraining', options, PoliticsTrainingRPCActions);

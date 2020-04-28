@@ -1,9 +1,9 @@
 'use strict';
 
-var dao = require('js/dao');
-var vex = require('js/vex');
-var ws = require('js/ws');
-var UserWSActions = require('js/actions/ws/user');
+var dao = require('/app/js/dao');
+var vex = require('/app/js/vex');
+var ws = require('/app/js/ws');
+var UserWSActions = require('/app/js/actions/ws/user');
 
 UserWSActions.requestUserWSLoginWithPassword.listen(function(content) {
     ws.call({
